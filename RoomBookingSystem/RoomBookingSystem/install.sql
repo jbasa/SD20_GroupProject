@@ -68,8 +68,8 @@ insert into tbRoom (RoomName, NumberOfChairs, FloorID) values
 Create table tbBooking
 (
 BookingID int primary key identity (1,1),
-StartTime time,
-EndTime time,
+StartTime datetime,
+EndTime datetime,
 UserID int foreign key references tbUsers (UserID),
 RoomID int foreign key references tbRoom (RoomID)
 )

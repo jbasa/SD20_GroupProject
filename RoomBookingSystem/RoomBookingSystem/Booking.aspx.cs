@@ -34,5 +34,14 @@ namespace RoomBookingSystem
         {
 
         }
+
+        protected void gvAvailableRooms_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            gvAvailableRooms.SelectedIndex = Convert.ToInt32(e.CommandArgument);
+            if (e.CommandName == "book")
+            {
+
+            }
+        }
     }
 }

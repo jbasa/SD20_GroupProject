@@ -73,6 +73,11 @@ EndTime datetime,
 UserID int foreign key references tbUsers (UserID),
 RoomID int foreign key references tbRoom (RoomID)
 )
+insert into tbBooking (StartTime, EndTime, UserID, RoomID) values
+					('2015-08-20 11:00:00', '2015-08-20 13:00:00', 1, 1),
+					('2015-08-19 8:00:00', '2015-08-19 11:00:00', 2, 2),
+					('2015-08-19 8:00:00', '2015-08-19 14:00:00', 3, 3),
+					('2015-08-20 8:00:00', '2015-08-20 17:00:00', 4, 4)
 
 go
 										-- Booking CRUD --
@@ -195,3 +200,35 @@ as begin
 	select * from tbFloor
 end
 go
+
+	-- Search --
+Create proc spSearch
+(
+@FloorNumber int = null,
+@NumberOfChairs int = null,
+@StartTime datetime,
+@EndTime datetime
+)
+as begin
+	-- Find all rooms that match search criteria
+	Select r.RoomID, RoomName, FloorNumber, NumberOfChairs
+		from tbFloor f JOIN tbRoom r ON f.FloorID = r.FloorID
+		where (@FloorNumber IS NULL OR f.FloorNumber = @FloorNumber)
+		AND (@NumberOfChairs IS NULL OR r.NumberOfChairs >= @NumberOfChairs)
+		AND r.RoomID NOT IN 
+			( -- FIND ALL THE ROOMS THAT ARE BOOKED DURING THE START/END DATES.. dont join those! NOT IN NOT IN
+				SELECT b.RoomId FROM tbBooking b
+					WHERE	@StartTime >= StartTime AND @StartTime <= EndTime
+					OR		@EndTime >= StartTime AND @EndTime <= EndTime
+					OR		@StartTime <= StartTime AND @EndTime >= EndTime
+			)
+end
+go
+
+--exec spSearch 0,15,'2015-08-20 11:00:00','2015-08-20 13:00:00'
+
+--SELECT * FROM tbRoom
+
+--SELECT f.FloorNumber,r.RoomName, r.NumberOfChairs, b.StartTime, b.EndTime 
+--	FROM tbRoom r JOIN tbBooking b ON r.RoomID = b.RoomID
+--				  JOIN tbFloor f ON f.FloorID = r.FloorID

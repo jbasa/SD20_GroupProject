@@ -40,7 +40,7 @@
 
 
     <div class="col-md-6">
-        <asp:GridView ID="gvAvailableRooms" AutoGenerateColumns="false" Visible="false" runat="server">
+        <asp:GridView ID="gvAvailableRooms" AutoGenerateColumns="false" Visible="false" runat="server" OnRowCommand="gvAvailableRooms_RowCommand">
             <Columns>
                 <asp:BoundField DataField="FloorNumber" HeaderText="Floor #" />
                 <asp:BoundField DataField="RoomName" HeaderText="Room Name" />

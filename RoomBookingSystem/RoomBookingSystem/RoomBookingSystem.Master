@@ -20,7 +20,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="#" class="navbar-brand">RBS</a>
+                    <a href="/" class="navbar-brand"><img style="max-width:120px; margin-top: -12px; max-height:40px" src="imgs/rbslogo2.png" alt="RBS LOGO"/></a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">

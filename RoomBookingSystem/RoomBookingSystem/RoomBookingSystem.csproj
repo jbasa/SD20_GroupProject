@@ -58,6 +58,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Booking.aspx" />
+    <Content Include="css\bootstrap-lightbox.css" />
+    <Content Include="css\bootstrap-lightbox.min.css" />
     <Content Include="css\bootstrap-simplex.css" />
     <Content Include="css\bootstrap-theme.css" />
     <Content Include="css\bootstrap-theme.min.css" />
@@ -67,10 +69,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="imgs\backgroundtest.jpg" />
     <Content Include="imgs\heisendoug.png" />
+    <Content Include="imgs\rbslogo.png" />
+    <Content Include="imgs\rbslogo2.png" />
     <Content Include="imgs\theman.jpg" />
     <Content Include="Index.aspx" />
     <Content Include="css\jquery-2.1.4.min.js" />
     <Content Include="install.sql" />
+    <Content Include="js\bootstrap-lightbox.js" />
+    <Content Include="js\bootstrap-lightbox.min.js" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\npm.js" />

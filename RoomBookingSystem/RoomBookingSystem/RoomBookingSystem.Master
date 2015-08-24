@@ -5,7 +5,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Robertson College Room Booking System</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="js/jquery-2.1.4.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <link href="css/bootstrap-simplex.css" rel="stylesheet" />
+    <link href="JumbotronStyle.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -20,16 +24,29 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="/" class="navbar-brand"><img style="max-width:120px; margin-top: -12px; max-height:40px" src="imgs/rbslogo2.png" alt="RBS LOGO"/></a>
+                    <a href="/" class="navbar-brand">
+                        <img style="max-width: 120px; margin-top: -12px; max-height: 40px" src="imgs/rbslogo2.png" alt="RBS LOGO" /></a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+                        <li class="active"><a href="/"><span class="glyphicon glyphicon-home"></span>Home</a></li>
                         <li><a href="Booking.aspx"><span class="glyphicon glyphicon-time"></span>Booking</a></li>
                         <li><a href="#">About Us</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-earphone"></span>Contact</a></li>
-                        <li>
-                            <div class="navbar-form navbar-right">
+                        <li><a href="#contact" data-toggle="modal"><span class="glyphicon glyphicon-earphone"></span>Contact</a></li>
+                        <li><a href="#login" data-toggle="modal"><span class="glyphicon glyphicon-ok-circle"></span>Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <asp:Panel ID="pnlLogin" runat="server">
+            <div class="modal fade" id="login" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4>Please Login to Continue</h4>
+                        </div>
+                        <div class="modal-body">
+
                                 <div class="input-group">
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-user"></span>
@@ -42,21 +59,23 @@
                                     </span>
                                     <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" TextMode="Password" placeholder="Password"></asp:TextBox>
                                 </div>
-                                <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="btn btn-success" OnClick="btnLogin_Click" />
+                        </div>
+                        <div class="modal-footer">
+                            <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="btn btn-success" />
+                            <asp:Button ID="btnClose" runat="server" CssClass="btn btn-default" Text="Cancel" />
                             </div>
-                        </li>
-                    </ul>
-                    
                 </div>
             </div>
+                `
         </div>
-        <div style="margin-top:50px;">
+
+        </asp:Panel>
+
+
+        <div style="margin-top: 50px;">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
         </div>
     </form>
-    <script src="css/jquery-2.1.4.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <link href="css/bootstrap-simplex.css" rel="stylesheet" />
-    <link href="JumbotronStyle.css" rel="stylesheet" />
 </body>
 </html>
++

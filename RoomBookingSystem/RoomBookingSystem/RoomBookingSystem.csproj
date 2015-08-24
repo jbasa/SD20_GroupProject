@@ -114,6 +114,7 @@
     <Compile Include="RoomBookingSystem.Master.designer.cs">
       <DependentUpon>RoomBookingSystem.Master</DependentUpon>
     </Compile>
+    <Compile Include="Security.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="RoomBookingSystem.Master" />

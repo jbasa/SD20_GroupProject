@@ -10,27 +10,24 @@ namespace RoomBookingSystem
     public class Security
     {
         string conn = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-        public string Username;
         public string FullName;
         public Security()
         {
-            if (HttpContext.Current.Session["Username"] == null)
+            if (HttpContext.Current.Session["FullName"] == null)
             {
-                Username = "";
                 FullName = "";
             }
             else
             {
-                Username = HttpContext.Current.Session["Username"].ToString();
-                Username = HttpContext.Current.Session["Fullname"].ToString();
+                FullName = HttpContext.Current.Session["FullName"].ToString();
             }
         }
 
-        public bool Login(string Username, string Password)
+        public bool Login(string FullName, string Password)
         {
             DAL myDal = new DAL(conn);
             DataSet dsLogin = new DataSet();
-            myDal.AddParam("@Username", Username);
+            myDal.AddParam("@FullName", FullName);
             myDal.AddParam("@Password", Password);
             dsLogin = myDal.ExecuteProcedure("spLogin");
 
@@ -39,18 +36,15 @@ namespace RoomBookingSystem
                 return false;
             }
 
-            Username = dsLogin.Tables[0].Rows[0]["Username"].ToString();
-            HttpContext.Current.Session["Username"] = Username;
-
             FullName = dsLogin.Tables[0].Rows[0]["FullName"].ToString();
-            HttpContext.Current.Session["FullName"] = FullName;
+            HttpContext.Current.Session["FullName"] = FullName; 
 
             return true;
         }
 
         public bool IsClient()
         {
-            if (HttpContext.Current.Session["Username"] == null)
+            if (HttpContext.Current.Session["FullName"] == null)
             {
                 return false;
             }
@@ -59,13 +53,13 @@ namespace RoomBookingSystem
 
         public bool IsAdmin()
         {
-            if (HttpContext.Current.Session["Username"] == null)
+            if (HttpContext.Current.Session["FullName"] == null)
             {
                 return false;
             }
             else
             {
-                if (HttpContext.Current.Session["Username"].ToString() == "Admin")
+                if (HttpContext.Current.Session["FullName"].ToString() == "Admin")
                 {
                     return true;
                 }

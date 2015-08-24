@@ -232,3 +232,17 @@ go
 --SELECT f.FloorNumber,r.RoomName, r.NumberOfChairs, b.StartTime, b.EndTime 
 --	FROM tbRoom r JOIN tbBooking b ON r.RoomID = b.RoomID
 --				  JOIN tbFloor f ON f.FloorID = r.FloorID
+
+
+Create proc spLogin
+(
+@FullName varchar (60),
+@Password varchar (60)
+)
+as begin
+	select FullName
+	from tbUsers
+	where FullName = @FullName and
+		  Password = @Password 
+end
+go

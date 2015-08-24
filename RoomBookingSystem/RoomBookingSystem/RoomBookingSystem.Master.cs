@@ -13,5 +13,25 @@ namespace RoomBookingSystem
         {
 
         }
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            Security mySecurity = new Security();
+            if (mySecurity.Login(txtUsername.Text, txtPassword.Text))
+            {
+                if (mySecurity.IsAdmin())
+                {
+                    Response.Redirect("Index.aspx");
+                }
+                else if (mySecurity.IsClient())
+                {
+                    Response.Redirect("Booking.aspx");
+                }
+            }
+            else
+            {
+
+            }
+        }
     }
 }

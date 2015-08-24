@@ -27,20 +27,29 @@ namespace RoomBookingSystem
             ddlFloor.DataTextField = "FloorNumber";
             ddlFloor.DataValueField = "FloorID";
             ddlFloor.DataBind();
-            
+
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            DAL myDal = new DAL(conn);
-            DateTime StartTime = DateTime.Parse(txtDate.Text + " " + txtStartTime.Text);
-            DateTime EndTime = DateTime.Parse(txtDate.Text + " " + txtEndTime.Text);
-            myDal.AddParam("@FloorNumber", ddlFloor.SelectedValue);
-            myDal.AddParam("@NumberOfChairs", ddlCapacity.SelectedValue);
-            myDal.AddParam("@StartTime", StartTime);
-            myDal.AddParam("@EndTime", EndTime);
-            gvAvailableRooms.DataSource = myDal.ExecuteProcedure("spSearch");
-            gvAvailableRooms.DataBind();
+            Security mySecurity = new Security();
+            if (!mySecurity.IsClient())
+            {
+
+            }
+            else
+            {
+                DAL myDal = new DAL(conn);
+                DateTime StartTime = DateTime.Parse(txtDate.Text + " " + txtStartTime.Text);
+                DateTime EndTime = DateTime.Parse(txtDate.Text + " " + txtEndTime.Text);
+                myDal.AddParam("@FloorNumber", ddlFloor.SelectedValue);
+                myDal.AddParam("@NumberOfChairs", ddlCapacity.SelectedValue);
+                myDal.AddParam("@StartTime", StartTime);
+                myDal.AddParam("@EndTime", EndTime);
+                gvAvailableRooms.DataSource = myDal.ExecuteProcedure("spSearch");
+                gvAvailableRooms.DataBind();
+            }
+
         }
 
         protected void gvAvailableRooms_RowCommand(object sender, GridViewCommandEventArgs e)

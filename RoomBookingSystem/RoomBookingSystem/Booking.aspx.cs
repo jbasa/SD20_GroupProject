@@ -35,7 +35,7 @@ namespace RoomBookingSystem
             Security mySecurity = new Security();
             if (!mySecurity.IsClient())
             {
-
+                Response.Redirect("Booking.aspx?MustLogIn=true");
             }
             else
             {

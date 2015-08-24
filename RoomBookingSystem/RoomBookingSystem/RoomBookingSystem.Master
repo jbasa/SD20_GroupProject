@@ -10,6 +10,28 @@
     <script src="js/bootstrap.js"></script>
     <link href="css/bootstrap-simplex.css" rel="stylesheet" />
     <link href="JumbotronStyle.css" rel="stylesheet" />
+    <script>
+        function GetQueryStringParam(queryStringName) {
+            // ***this goes on the global scope
+            // get querystring as an array split on "&"
+            var querystring = location.search.replace('?', '').split('&');
+            // declare object
+            var queryObj = {};
+            // loop through each name-value pair and populate object
+            for (var i = 0; i < querystring.length; i++) {
+                // get name and value
+                var name = querystring[i].split('=')[0];
+                var value = querystring[i].split('=')[1];
+                // populate object
+                queryObj[name] = value;
+            }
+            return queryObj[queryStringName];
+        }
+
+        function CloseModal() {
+            $('#login').modal('hide');
+        }
+    </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -61,9 +83,9 @@
                                 </div>
                         </div>
                         <div class="modal-footer">
-                            <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="btn btn-success" />
-                            <asp:Button ID="btnClose" runat="server" CssClass="btn btn-default" Text="Cancel" />
-                            </div>
+                            <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="btn btn-success" OnClick="btnLogin_Click1" />
+                            <input id="btnCancel" runat="server" class="btn btn-default" value="Cancel" onclick="CloseModal();" />
+                         </div>
                 </div>
             </div>
                 `
@@ -78,4 +100,3 @@
     </form>
 </body>
 </html>
-+

@@ -11,10 +11,10 @@ namespace RoomBookingSystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
-        protected void btnLogin_Click(object sender, EventArgs e)
+        protected void btnLogin_Click1(object sender, EventArgs e)
         {
             Security mySecurity = new Security();
             if (mySecurity.Login(txtUsername.Text, txtPassword.Text))
@@ -30,7 +30,7 @@ namespace RoomBookingSystem
             }
             else
             {
-
+                
             }
         }
     }

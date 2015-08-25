@@ -5,22 +5,37 @@ using System.Web;
 using DAL_Project;
 using System.Configuration;
 using System.Data;
+
 namespace RoomBookingSystem
 {
     public class Security
     {
         string conn = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-        public string FullName;
+        public int UserID
+        {
+            get
+            {
+                return HttpContext.Current.Session["UserID"] == null ? -1 : Convert.ToInt32(HttpContext.Current.Session["UserID"].ToString());
+            }
+        }
+        public string FullName
+        {
+            get
+            {
+                return HttpContext.Current.Session["FullName"] == null ? null : HttpContext.Current.Session["FullName"].ToString(); 
+            }
+        }
+        public int SecurityLevel
+        {
+            get
+            {
+                return HttpContext.Current.Session["SecurityLevel"] == null ? -1 : Convert.ToInt32(HttpContext.Current.Session["SecurityLevel"].ToString());
+            }
+        }
+
         public Security()
         {
-            if (HttpContext.Current.Session["FullName"] == null)
-            {
-                FullName = "";
-            }
-            else
-            {
-                FullName = HttpContext.Current.Session["FullName"].ToString();
-            }
+
         }
 
         public bool Login(string FullName, string Password)
@@ -36,38 +51,24 @@ namespace RoomBookingSystem
                 return false;
             }
 
-            FullName = dsLogin.Tables[0].Rows[0]["FullName"].ToString();
-            HttpContext.Current.Session["FullName"] = FullName; 
+            HttpContext.Current.Session["UserID"] = int.Parse(dsLogin.Tables[0].Rows[0]["UserID"].ToString());
+            HttpContext.Current.Session["FullName"] = dsLogin.Tables[0].Rows[0]["FullName"].ToString();
+            HttpContext.Current.Session["SecurityLevel"] =int.Parse(dsLogin.Tables[0].Rows[0]["SecurityLevel"].ToString());
 
             return true;
         }
 
+        internal bool IsLoggedIn()
+        {
+            return HttpContext.Current.Session["SecurityLevel"] != null;
+        }
         public bool IsClient()
         {
-            if (HttpContext.Current.Session["FullName"] == null)
-            {
-                return false;
-            }
-            return true;
+            return IsLoggedIn() && HttpContext.Current.Session["SecurityLevel"].ToString() == "1";
         }
-
         public bool IsAdmin()
         {
-            if (HttpContext.Current.Session["FullName"] == null)
-            {
-                return false;
-            }
-            else
-            {
-                if (HttpContext.Current.Session["FullName"].ToString() == "Admin")
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
+            return IsLoggedIn() && HttpContext.Current.Session["SecurityLevel"].ToString() == "2";
         }
 
         internal static void LogOut()
@@ -75,5 +76,6 @@ namespace RoomBookingSystem
             HttpContext.Current.Session.Clear();
             HttpContext.Current.Session.Abandon();
         }
+
     }
 }

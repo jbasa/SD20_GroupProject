@@ -11,9 +11,11 @@ namespace RoomBookingSystem
 {
     public partial class Booking : System.Web.UI.Page
     {
+        Security mySecurity;
         string conn = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            mySecurity = new Security();
             if (!IsPostBack)
             {
                 LoadFloors();
@@ -33,7 +35,7 @@ namespace RoomBookingSystem
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             Security mySecurity = new Security();
-            if (!mySecurity.IsClient())
+            if (!mySecurity.IsLoggedIn())
             {
                 Response.Redirect("Booking.aspx?MustLogIn=true");
             }
@@ -57,7 +59,11 @@ namespace RoomBookingSystem
             gvAvailableRooms.SelectedIndex = Convert.ToInt32(e.CommandArgument);
             if (e.CommandName == "book")
             {
-                Response.Redirect("Booking.aspx?Confirm=true");
+                lblUser.Text = mySecurity.FullName;
+                lblRoom.Text = gvAvailableRooms.SelectedRow.Cells[1].Text;
+                lblStartTime.Text = txtStartTime.Text;
+                lblEndTime.Text = txtEndTime.Text;
+                pnlBookingConfirm.Visible = true;
             }
         }
 

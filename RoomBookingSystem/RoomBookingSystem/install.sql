@@ -12,13 +12,14 @@ Create table tbUsers
 UserID int primary key identity (1,1),
 FullName varchar (30),
 Email varchar (60),
-Password varchar (30)
+Password varchar (30),
+SecurityLevel INT
 )
-insert into tbUsers (FullName, Email, Password) values
-					('Adam Kuharski','adam.kuharski@robertsoncollege.net','adam'),
-					('Michael Glowa', 'michael.glowa@robertsoncollege.net','michael'),
-					('John Basa', 'john.basa@robertsoncollege.net', 'john'),
-					('Craig Kunz', 'craig.kunz@robertsoncollege.net', 'craig')
+insert into tbUsers (FullName, Email, Password, SecurityLevel) values
+					('Adam Kuharski','adam.kuharski@robertsoncollege.net','adam',2),
+					('Michael Glowa', 'michael.glowa@robertsoncollege.net','michael',1),
+					('John Basa', 'john.basa@robertsoncollege.net', 'john',1),
+					('Craig Kunz', 'craig.kunz@robertsoncollege.net', 'craig',1)
 
 
 Create table tbFloor
@@ -240,7 +241,7 @@ Create proc spLogin
 @Password varchar (60)
 )
 as begin
-	select FullName
+	select *
 	from tbUsers
 	where FullName = @FullName and
 		  Password = @Password 

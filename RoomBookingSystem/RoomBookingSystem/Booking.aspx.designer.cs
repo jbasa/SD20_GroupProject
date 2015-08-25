@@ -76,6 +76,15 @@ namespace RoomBookingSystem {
         protected global::System.Web.UI.WebControls.GridView gvAvailableRooms;
         
         /// <summary>
+        /// pnlBookingConfirm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlBookingConfirm;
+        
+        /// <summary>
         /// lblUser control.
         /// </summary>
         /// <remarks>

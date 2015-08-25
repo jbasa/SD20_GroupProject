@@ -59,14 +59,32 @@
             <div class="panel-heading">
                 <h3 class="text-center">Available Rooms</h3>
             </div>
-            <div class="panel-body">
-                <asp:GridView ID="gvAvailableRooms" AutoGenerateColumns="False" runat="server" OnRowCommand="gvAvailableRooms_RowCommand">
+            <div class="panel-body text-center">
+                <asp:GridView ID="gvAvailableRooms" AutoGenerateColumns="False" runat="server" OnRowCommand="gvAvailableRooms_RowCommand" DataKeyNames="RoomID" CellPadding="4" ForeColor="#FFFFFF" GridLines="None">
+                    <AlternatingRowStyle BackColor="White"></AlternatingRowStyle>
                     <Columns>
                         <asp:BoundField DataField="FloorNumber" HeaderText="Floor #" />
                         <asp:BoundField DataField="RoomName" HeaderText="Room Name" />
                         <asp:BoundField DataField="NumberOfChairs" HeaderText="Capacity" />
                         <asp:ButtonField ButtonType="Button" Text="Book" CommandName="book" />
                     </Columns>
+                    <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White"></FooterStyle>
+
+                    <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White"></HeaderStyle>
+
+                    <PagerStyle HorizontalAlign="Center" BackColor="#FFCC66" ForeColor="#333333"></PagerStyle>
+
+                    <RowStyle BackColor="#FFFBD6" ForeColor="#333333"></RowStyle>
+
+                    <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="White"></SelectedRowStyle>
+
+                    <SortedAscendingCellStyle BackColor="#FDF5AC"></SortedAscendingCellStyle>
+
+                    <SortedAscendingHeaderStyle BackColor="#4D0000"></SortedAscendingHeaderStyle>
+
+                    <SortedDescendingCellStyle BackColor="#FCF6C0"></SortedDescendingCellStyle>
+
+                    <SortedDescendingHeaderStyle BackColor="#820000"></SortedDescendingHeaderStyle>
                 </asp:GridView>
             </div>
         </div>
@@ -76,7 +94,7 @@
 
 
 
-
+    <asp:Panel ID="pnlBookingConfirm" runat="server" Visible="false">
     <div class="modal fade" id="confirm" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -86,7 +104,7 @@
                 <div class="modal-body">
                     <table>
                         <tr>
-                            <td>User</td>
+                            <td style="width:300px;">User</td>
                             <td>
                                 <asp:Label ID="lblUser" runat="server"></asp:Label></td>
                         </tr>
@@ -101,7 +119,7 @@
                                 <asp:Label ID="lblStartTime" runat="server"></asp:Label></td>
                         </tr>
                         <tr>
-                            <td>Room</td>
+                            <td>End Time</td>
                             <td>
                                 <asp:Label ID="lblEndTime" runat="server"></asp:Label></td>
                         </tr>
@@ -114,12 +132,13 @@
             </div>
         </div>
     </div>
+    </asp:Panel>
 
     <script>
         if (GetQueryStringParam("MustLogIn")) {
             $('#login').modal('show');
         }
-        if (GetQueryStringParam("Confirm")) {
+        if ($("#confirm")) {
             $('#confirm').modal('show');
         }
     </script>

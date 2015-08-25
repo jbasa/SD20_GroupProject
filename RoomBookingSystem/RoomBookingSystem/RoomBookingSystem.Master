@@ -60,7 +60,7 @@
                 </div>
             </div>
         </div>
-        <asp:Panel ID="pnlLogin" runat="server">
+<%--        <asp:Panel ID="pnlLogin" runat="server">--%>
             <div class="modal fade" id="login" role="dialog">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -68,30 +68,28 @@
                             <h4>Please Login to Continue</h4>
                         </div>
                         <div class="modal-body">
-
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-user"></span>
-                                    </span>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                </span>
                                 <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control" placeholder="Username"></asp:TextBox>
-                                </div>
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-lock"></span>
-                                    </span>
-                                    <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" TextMode="Password" placeholder="Password"></asp:TextBox>
-                                </div>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-lock"></span>
+                                </span>
+                                <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" TextMode="Password" placeholder="Password"></asp:TextBox>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="btn btn-success" OnClick="btnLogin_Click1" />
                             <input id="btnCancel" runat="server" class="btn btn-default" value="Cancel" onclick="CloseModal();" />
-                         </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-                `
-        </div>
-
-        </asp:Panel>
+<%--
+        </asp:Panel>--%>
 
 
         <div style="margin-top: 50px;">

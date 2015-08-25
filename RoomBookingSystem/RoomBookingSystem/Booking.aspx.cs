@@ -57,8 +57,13 @@ namespace RoomBookingSystem
             gvAvailableRooms.SelectedIndex = Convert.ToInt32(e.CommandArgument);
             if (e.CommandName == "book")
             {
-
+                Response.Redirect("Booking.aspx?Confirm=true");
             }
+        }
+
+        protected void btnContinue_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

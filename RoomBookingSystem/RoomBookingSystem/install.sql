@@ -233,7 +233,7 @@ go
 --	FROM tbRoom r JOIN tbBooking b ON r.RoomID = b.RoomID
 --				  JOIN tbFloor f ON f.FloorID = r.FloorID
 
-
+	-- Login --
 Create proc spLogin
 (
 @FullName varchar (60),

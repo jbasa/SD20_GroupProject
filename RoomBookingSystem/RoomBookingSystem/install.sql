@@ -156,8 +156,8 @@ begin
 end
 else
 begin
-	insert into tbUsers(Fullname, Email, Password) values
-						(@FullName, @Email, @Password)
+	insert into tbUsers(Fullname, Email, Password, SecurityLevel) values
+						(@FullName, @Email, @Password, 1)
 	Select 'Ok' as Message
 	select SCOPE_IDENTITY() as [NewUser]
 end

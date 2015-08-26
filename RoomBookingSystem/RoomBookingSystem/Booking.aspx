@@ -60,7 +60,7 @@
                 <h3 class="text-center">Available Rooms</h3>
             </div>
             <div class="panel-body text-center">
-                <asp:GridView ID="gvAvailableRooms" AutoGenerateColumns="False" runat="server" OnRowCommand="gvAvailableRooms_RowCommand" DataKeyNames="RoomID" CellPadding="4" ForeColor="#FFFFFF" GridLines="None">
+                <asp:GridView ID="gvAvailableRooms" AutoGenerateColumns="False" runat="server" OnRowCommand="gvAvailableRooms_RowCommand" DataKeyNames="RoomID" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None" CssClass="text-center">
                     <AlternatingRowStyle BackColor="White"></AlternatingRowStyle>
                     <Columns>
                         <asp:BoundField DataField="FloorNumber" HeaderText="Floor #" />
@@ -68,9 +68,9 @@
                         <asp:BoundField DataField="NumberOfChairs" HeaderText="Capacity" />
                         <asp:ButtonField ButtonType="Button" Text="Book" CommandName="book" />
                     </Columns>
-                    <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White"></FooterStyle>
+                    <FooterStyle BackColor="#b81e0d" Font-Bold="True" ForeColor="White"></FooterStyle>
 
-                    <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White"></HeaderStyle>
+                    <HeaderStyle BackColor="#b81e0d" Font-Bold="True" ForeColor="White" HorizontalAlign="Center"></HeaderStyle>
 
                     <PagerStyle HorizontalAlign="Center" BackColor="#FFCC66" ForeColor="#333333"></PagerStyle>
 

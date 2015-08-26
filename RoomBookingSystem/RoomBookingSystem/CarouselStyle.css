@@ -1,0 +1,15 @@
+﻿.carousel .item {
+    background:#F9F9F9;
+    overflow:hidden;
+    margin-bottom:1em;
+    margin-top:1em;
+    padding:5px;
+}
+.carousel-inner > .item > img {
+    float: left;
+    margin: 0pt 3px;
+    padding: 2px;
+    min-height: 315px;
+    width:  100%;
+}
+

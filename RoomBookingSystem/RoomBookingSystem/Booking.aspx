@@ -4,6 +4,8 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <link href="CarouselStyle.css" rel="stylesheet" />
+
     <script>
         function GetQueryStringParam(queryStringName) {
             // ***this goes on the global scope
@@ -28,6 +30,48 @@
     </script>
 
     <div class="container-fluid">
+        <div class="container-fluid">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="imgs/business1.768x0.jpg" alt="...">
+                        <div class="carousel-caption">
+                            <h3>Caption Text</h3>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="imgs/rcbuilding.jpg" alt="...">
+                        <div class="carousel-caption">
+                            <h3>Caption Text</h3>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="http://placehold.it/1200x315" alt="...">
+                        <div class="carousel-caption">
+                            <h3>Caption Text</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div>
+            <!-- Carousel -->
+        </div>
+
         <div class="col-md-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -60,7 +104,7 @@
                 <h3 class="text-center">Available Rooms</h3>
             </div>
             <div class="panel-body text-center">
-                <asp:GridView ID="gvAvailableRooms" AutoGenerateColumns="False" runat="server" OnRowCommand="gvAvailableRooms_RowCommand" DataKeyNames="RoomID" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None" CssClass="text-center">
+                    <asp:GridView ID="gvAvailableRooms" AutoGenerateColumns="False" runat="server" OnRowCommand="gvAvailableRooms_RowCommand" DataKeyNames="RoomID" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None" CssClass="text-center">
                     <AlternatingRowStyle BackColor="White"></AlternatingRowStyle>
                     <Columns>
                         <asp:BoundField DataField="FloorNumber" HeaderText="Floor #" />
@@ -68,9 +112,9 @@
                         <asp:BoundField DataField="NumberOfChairs" HeaderText="Capacity" />
                         <asp:ButtonField ButtonType="Button" Text="Book" CommandName="book" />
                     </Columns>
-                    <FooterStyle BackColor="#b81e0d" Font-Bold="True" ForeColor="White"></FooterStyle>
+                        <FooterStyle BackColor="#b81e0d" Font-Bold="True" ForeColor="White"></FooterStyle>
 
-                    <HeaderStyle BackColor="#b81e0d" Font-Bold="True" ForeColor="White" HorizontalAlign="Center"></HeaderStyle>
+                        <HeaderStyle BackColor="#b81e0d" Font-Bold="True" ForeColor="White" HorizontalAlign="Center"></HeaderStyle>
 
                     <PagerStyle HorizontalAlign="Center" BackColor="#FFCC66" ForeColor="#333333"></PagerStyle>
 
@@ -104,7 +148,7 @@
                 <div class="modal-body">
                     <table>
                         <tr>
-                            <td style="width:300px;">User</td>
+                                <td style="width: 300px;">User</td>
                             <td>
                                 <asp:Label ID="lblUser" runat="server"></asp:Label></td>
                         </tr>
@@ -126,7 +170,7 @@
                     </table>
                 </div>
                 <div class="modal-footer">
-                    <asp:Button ID="btnContinue" runat="server" Text="Continue" CssClass="btn btn-success" OnClick="btnContinue_Click"/>
+                        <asp:Button ID="btnContinue" runat="server" Text="Continue" CssClass="btn btn-success" OnClick="btnContinue_Click" />
                     <input id="btnCancel" runat="server" class="btn btn-default" value="Cancel" onclick="CloseModal();" />
                 </div>
             </div>

@@ -85,8 +85,8 @@ go
 	-- Book Room --
 Create proc spBookRoom
 (
-@StartTime time,
-@EndTime time,
+@StartTime datetime,
+@EndTime datetime,
 @UserID int,
 @RoomID int
 )
@@ -97,13 +97,15 @@ as begin
 	select SCOPE_IDENTITY() as [NewBooking]
 end
 go
-
+--spBookRoom @StartTime='2015-01-12 09:30:00',  @EndTime='2015-01-12 011:30:00', @UserId=1,@RoomID=8
+--SELECT * FROM tbBooking
+GO
 	-- Update Booking --
 Create proc spUpdateBooking
 (
 @BookingID int,
-@StartTime time,
-@EndTime time,
+@StartTime datetime,
+@EndTime datetime,
 @UserID int,
 @RoomID int
 )
@@ -234,6 +236,7 @@ as begin
 end
 go
 
+--SELECT * FROM tbBooking JOIN tbRoom ON tbRoom.RoomID = tbBooking.RoomID
 --exec spSearch 0,15,'2015-08-20 11:00:00','2015-08-20 13:00:00'
 
 --SELECT * FROM tbRoom

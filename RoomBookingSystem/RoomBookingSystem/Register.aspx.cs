@@ -35,9 +35,9 @@ namespace RoomBookingSystem
             }
             else
             {
-                lblMessage.Text = "User Created";
-                ConfirmationEmail();
-                lblMessage.Text = "A confirmation email has been sent to your email address";
+                lblMessage.Text = "User Created, Please go to Log In to continue";
+                //ConfirmationEmail();
+                //lblEmail.Text = "A confirmation email has been sent to your email address";
             }
 
 

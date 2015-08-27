@@ -189,6 +189,8 @@ Create proc spDeleteUser
 @UserID int
 )
 as begin
+	delete from tbBooking
+	where UserID = @UserID
 	delete from tbUsers
 	where UserID= @UserID
 end

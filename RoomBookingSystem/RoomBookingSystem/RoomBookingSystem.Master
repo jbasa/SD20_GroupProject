@@ -56,6 +56,7 @@
                         <li><a href="AboutUs.aspx"><span class="glyphicon glyphicon-question-sign"></span>About</a></li>
                         <li><a href="Contact.aspx"><span class="glyphicon glyphicon-earphone"></span>Contact</a></li>
                         <li><a href="Register.aspx"><span class="glyphicon glyphicon-user"></span>Register</a></li>
+                        <li><a href="AdminUsers.aspx"><span class="glyphicon glyphicon-user"></span>Admin Users</a></li>
                         <li><a href="#login" data-toggle="modal"><span class="glyphicon glyphicon-ok-circle"></span>Login</a></li>
                     </ul>
                 </div>

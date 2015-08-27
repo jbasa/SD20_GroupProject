@@ -68,6 +68,7 @@
     <Content Include="css\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\custom.css" />
     <Content Include="imgs\about-us.jpg" />
     <Content Include="imgs\business1.768x0.jpg" />
     <Content Include="imgs\jbpattern.png" />

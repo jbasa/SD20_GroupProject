@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-fluid">
         <div class="text-center jumbotron jumbotron-about" style="border: 1px #000">
-            <h1>About Us</h1>
+            <h1 style="color:#FFFFFF">About Us</h1>
         </div>
 
         <div class="page-header">

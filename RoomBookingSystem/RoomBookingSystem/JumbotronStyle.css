@@ -1,12 +1,19 @@
-﻿.body {
-     background-image: url('imgs/backgroundtest.jpg');
+﻿
+
+
+.jumbotron-about {
+    background-image: url('imgs/jbpattern.png');
+    background-attachment:fixed;
+    background-size: 100% 100%;
+    min-height:315px;
+    background-repeat: no-repeat;
 }
 
 
-/*.jumbotron {
-    background-image: url('imgs/backgroundtest.jpg');
-    color: red;
-    background-attachment: fixed;
-    min-height: 400px;
-    margin-bottom: 0px;
-}*/
+.jumbotron-index {
+    background-image: url('imgs/jbpattern.png');
+    background-attachment:fixed;
+    background-size: 100% 100%;
+    min-height:315px;
+    background-repeat: no-repeat;
+}

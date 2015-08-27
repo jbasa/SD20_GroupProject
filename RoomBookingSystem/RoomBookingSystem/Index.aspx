@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-fluid">
-        <div class="text-center jumbotron" style="border: 1px #000">
+        <div class="text-center jumbotron jumbotron-index" style="border: 1px #000">
             <h1>Robertson College</h1>
             <p>Robertson College will have you career ready in 12 months or less!  Our diploma programs in Business, IT or Health Care are delivered in condensed formats and taught by experienced instructors so you can be in the workforce sooner. Our Career Services team is there to help you land your first job in your new career!</p>
             <a href="#" class="btn btn-lg btn-success" target="_blank">Learn More</a>

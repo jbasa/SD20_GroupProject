@@ -46,14 +46,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="/" class="navbar-brand">
+                    <a href="Index.aspx" class="navbar-brand">
                         <img style="max-width: 120px; margin-top: -12px; max-height: 40px" src="imgs/rbslogo2.png" alt="RBS LOGO" /></a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="/"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+                        <li class="active"><a href="Index.aspx"><span class="glyphicon glyphicon-home"></span>Home</a></li>
                         <li><a href="Booking.aspx"><span class="glyphicon glyphicon-time"></span>Booking</a></li>
-                        <li><a href="#about" data-toggle="modal"><span class="glyphicon glyphicon-question-sign"></span>About</a></li>
+                        <li><a href="AboutUs.aspx"><span class="glyphicon glyphicon-question-sign"></span>About</a></li>
                         <li><a href="#contact" data-toggle="modal"><span class="glyphicon glyphicon-earphone"></span>Contact</a></li>
                         <li><a href="Register.aspx"><span class="glyphicon glyphicon-user"></span>Register</a></li>
                         <li><a href="#login" data-toggle="modal"><span class="glyphicon glyphicon-ok-circle"></span>Login</a></li>
@@ -61,7 +61,6 @@
                 </div>
             </div>
         </div>
-<%--        <asp:Panel ID="pnlLogin" runat="server">--%>
             <div class="modal fade" id="login" role="dialog">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -83,15 +82,13 @@
                             </div>
                         </div>
                         <div class="modal-footer">
+                            Don't have an account? <asp:HyperLink ID="hlRegister" runat="server" Text="Register" CssClass="text-left"></asp:HyperLink><br />
                             <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="btn btn-success" OnClick="btnLogin_Click1" />
                             <input id="btnCancel" runat="server" class="btn btn-default" value="Cancel" onclick="CloseModal();" />
                         </div>
                     </div>
                 </div>
             </div>
-<%--
-        </asp:Panel>--%>
-
 
         <div style="margin-top: 50px;">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>

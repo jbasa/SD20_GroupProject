@@ -49,6 +49,15 @@ namespace RoomBookingSystem {
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
         
         /// <summary>
+        /// hlRegister control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlRegister;
+        
+        /// <summary>
         /// btnLogin control.
         /// </summary>
         /// <remarks>

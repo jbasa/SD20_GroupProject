@@ -57,7 +57,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AboutUs.aspx" />
     <Content Include="Booking.aspx" />
+    <Content Include="CarouselStyle.css" />
     <Content Include="css\bootstrap-lightbox.css" />
     <Content Include="css\bootstrap-lightbox.min.css" />
     <Content Include="css\bootstrap-simplex.css" />
@@ -65,6 +67,11 @@
     <Content Include="css\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
+    <Content Include="imgs\about-us.jpg" />
+    <Content Include="imgs\business1.768x0.jpg" />
+    <Content Include="imgs\jbpattern.png" />
+    <Content Include="imgs\rcbuilding.jpg" />
+    <Content Include="imgs\tower_city_shot.768x0.jpg" />
     <Content Include="js\jquery-2.1.4.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="imgs\backgroundtest.jpg" />
@@ -86,6 +93,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutUs.aspx.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AboutUs.aspx.designer.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Booking.aspx.cs">
       <DependentUpon>Booking.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

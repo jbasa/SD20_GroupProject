@@ -54,84 +54,84 @@
                 </div>
             </div>
         </div>
-    <div class="col-md-6">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="text-center">Available Rooms</h3>
-            </div>
-            <div class="panel-body text-center">
-                <asp:GridView ID="gvAvailableRooms" AutoGenerateColumns="False" runat="server" OnRowCommand="gvAvailableRooms_RowCommand" DataKeyNames="RoomID" CellPadding="4" ForeColor="#FFFFFF" GridLines="None">
-                    <AlternatingRowStyle BackColor="White"></AlternatingRowStyle>
-                    <Columns>
-                        <asp:BoundField DataField="FloorNumber" HeaderText="Floor #" />
-                        <asp:BoundField DataField="RoomName" HeaderText="Room Name" />
-                        <asp:BoundField DataField="NumberOfChairs" HeaderText="Capacity" />
-                        <asp:ButtonField ButtonType="Button" Text="Book" CommandName="book" />
-                    </Columns>
-                    <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White"></FooterStyle>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="text-center">Available Rooms</h3>
+                </div>
+                <div class="panel-body text-center">
+                    <asp:GridView ID="gvAvailableRooms" AutoGenerateColumns="False" runat="server" OnRowCommand="gvAvailableRooms_RowCommand" DataKeyNames="RoomID" CellPadding="4" ForeColor="#FFFFFF" GridLines="None">
+                        <AlternatingRowStyle BackColor="White"></AlternatingRowStyle>
+                        <Columns>
+                            <asp:BoundField DataField="FloorNumber" HeaderText="Floor #" />
+                            <asp:BoundField DataField="RoomName" HeaderText="Room Name" />
+                            <asp:BoundField DataField="NumberOfChairs" HeaderText="Capacity" />
+                            <asp:ButtonField ButtonType="Button" Text="Book" CommandName="book" />
+                        </Columns>
+                        <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White"></FooterStyle>
 
-                    <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White"></HeaderStyle>
+                        <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White"></HeaderStyle>
 
-                    <PagerStyle HorizontalAlign="Center" BackColor="#FFCC66" ForeColor="#333333"></PagerStyle>
+                        <PagerStyle HorizontalAlign="Center" BackColor="#FFCC66" ForeColor="#333333"></PagerStyle>
 
-                    <RowStyle BackColor="#FFFBD6" ForeColor="#333333"></RowStyle>
+                        <RowStyle BackColor="#FFFBD6" ForeColor="#333333"></RowStyle>
 
-                    <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="White"></SelectedRowStyle>
+                        <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="White"></SelectedRowStyle>
 
-                    <SortedAscendingCellStyle BackColor="#FDF5AC"></SortedAscendingCellStyle>
+                        <SortedAscendingCellStyle BackColor="#FDF5AC"></SortedAscendingCellStyle>
 
-                    <SortedAscendingHeaderStyle BackColor="#4D0000"></SortedAscendingHeaderStyle>
+                        <SortedAscendingHeaderStyle BackColor="#4D0000"></SortedAscendingHeaderStyle>
 
-                    <SortedDescendingCellStyle BackColor="#FCF6C0"></SortedDescendingCellStyle>
+                        <SortedDescendingCellStyle BackColor="#FCF6C0"></SortedDescendingCellStyle>
 
-                    <SortedDescendingHeaderStyle BackColor="#820000"></SortedDescendingHeaderStyle>
-                </asp:GridView>
+                        <SortedDescendingHeaderStyle BackColor="#820000"></SortedDescendingHeaderStyle>
+                    </asp:GridView>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
 
 
     <asp:Panel ID="pnlBookingConfirm" runat="server" Visible="false">
-    <div class="modal fade" id="confirm" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3>Room Booking Confirmation</h3>
-                </div>
-                <div class="modal-body">
-                    <table>
-                        <tr>
-                            <td style="width:300px;">User</td>
-                            <td>
-                                <asp:Label ID="lblUser" runat="server"></asp:Label></td>
-                        </tr>
-                        <tr>
-                            <td>Room</td>
-                            <td>
-                                <asp:Label ID="lblRoom" runat="server"></asp:Label></td>
-                        </tr>
-                        <tr>
-                            <td>Start Time</td>
-                            <td>
-                                <asp:Label ID="lblStartTime" runat="server"></asp:Label></td>
-                        </tr>
-                        <tr>
-                            <td>End Time</td>
-                            <td>
-                                <asp:Label ID="lblEndTime" runat="server"></asp:Label></td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="modal-footer">
-                    <asp:Button ID="btnContinue" runat="server" Text="Continue" CssClass="btn btn-success" OnClick="btnContinue_Click"/>
-                    <input id="btnCancel" runat="server" class="btn btn-default" value="Cancel" onclick="CloseModal();" />
+        <div class="modal fade" id="confirm" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Room Booking Confirmation</h3>
+                    </div>
+                    <div class="modal-body">
+                        <table>
+                            <tr>
+                                <td style="width: 300px;">User</td>
+                                <td>
+                                    <asp:Label ID="lblUser" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td>Room</td>
+                                <td>
+                                    <asp:Label ID="lblRoom" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td>Start Time</td>
+                                <td>
+                                    <asp:Label ID="lblStartTime" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td>End Time</td>
+                                <td>
+                                    <asp:Label ID="lblEndTime" runat="server"></asp:Label></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button ID="btnContinue" runat="server" Text="Continue" CssClass="btn btn-success" OnClick="btnContinue_Click" />
+                        <input id="btnCancel" runat="server" class="btn btn-default" value="Cancel" onclick="CloseModal();" />
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </asp:Panel>
 
     <script>

@@ -69,7 +69,17 @@ namespace RoomBookingSystem
 
         protected void btnContinue_Click(object sender, EventArgs e)
         {
-
+            Security mySecurity = new Security();
+            DAL myDal = new DAL(conn);
+            DateTime StartTime = DateTime.Parse(txtDate.Text + " " + txtStartTime.Text);
+            DateTime EndTime = DateTime.Parse(txtDate.Text + " " + txtEndTime.Text);
+            myDal.AddParam("@UserID", mySecurity.UserID);
+            myDal.AddParam("@RoomID", gvAvailableRooms.SelectedDataKey.Value);
+            myDal.AddParam("@StartTime", StartTime);
+            myDal.AddParam("@EndTime", EndTime);
+            myDal.ExecuteProcedure("spBookRoom");
+            pnlBookingConfirm.Visible = false;
+            
         }
     }
 }

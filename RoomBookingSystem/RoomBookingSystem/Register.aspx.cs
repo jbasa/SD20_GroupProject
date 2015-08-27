@@ -35,30 +35,30 @@ namespace RoomBookingSystem
             }
             else
             {
-                lblMessage.Text = "User Created";
-                ConfirmationEmail();
-                lblMessage.Text = "A confirmation email has been sent to your email address";
+                lblMessage.Text = "User Created, Please go to Log In to continue";
+                //ConfirmationEmail();
+                lblEmail.Text = "A confirmation email has been sent to your email address";
             }
 
 
         }
 
-        private void ConfirmationEmail()
-        {
-            MailMessage message = new MailMessage();
-            message.From = new MailAddress("adam.kuharski@robertsoncollege.net");
-            message.To.Add(new MailAddress(txtEmail.Text));
-            message.Subject = "Your account has been registered";
-            message.Body = "Thank you for registering with Robertson College Room Booking. Your Full Name is: " + " "
-                + txtFullName.Text + " " + "and Password is: " + " " + txtPassword.Text;
-            SmtpClient client = new SmtpClient();
-            client.Host = "smtp.gmail.com";
-            client.Port = 587;
-            client.EnableSsl = true;
-            client.Credentials = new System.Net.NetworkCredential
-            ("adam.kuharski@robertsoncollege.net", "Kevindurant35");
-            client.DeliveryMethod = SmtpDeliveryMethod.Network;
-            client.Send(message);
-        }
+        //private void ConfirmationEmail()
+        //{
+        //    MailMessage message = new MailMessage();
+        //    message.From = new MailAddress("adam.kuharski@robertsoncollege.net");
+        //    message.To.Add(new MailAddress(txtEmail.Text));
+        //    message.Subject = "Your account has been registered";
+        //    message.Body = "Thank you for registering with Robertson College Room Booking. Your Full Name is: " + " "
+        //        + txtFullName.Text + " " + "and Password is: " + " " + txtPassword.Text;
+        //    SmtpClient client = new SmtpClient();
+        //    client.Host = "smtp.gmail.com";
+        //    client.Port = 587;
+        //    client.EnableSsl = true;
+        //    client.Credentials = new System.Net.NetworkCredential
+        //    ("adam.kuharski@robertsoncollege.net", "Kevindurant35");
+        //    client.DeliveryMethod = SmtpDeliveryMethod.Network;
+        //    client.Send(message);
+        //}
     }
 }

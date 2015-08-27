@@ -21,21 +21,21 @@
             <td>Email:
             </td>
             <td>
-                <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtEmail" TextMode="Email" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td>Password:
             </td>
             <td>
-                <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtPassword" TextMode="Password" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td>Re Enter Password:
             </td>
             <td>
-                <asp:TextBox ID="txtReEnterPassword" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtReEnterPassword" TextMode="Password" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -45,4 +45,5 @@
             </td>
         </tr>
     </table>
+    <asp:Label ID="lblEmail" runat="server" Text=""></asp:Label>
 </asp:Content>

@@ -25,7 +25,7 @@ namespace RoomBookingSystem
         private void loadBookings()
         {
             DAL mydal = new DAL(conn);
-            GVAdminBooking.DataSource = mydal.ExecuteProcedure("spGetBookings");
+            GVAdminBooking.DataSource = mydal.ExecuteProcedure("spgetBookingUserRoom");
             GVAdminBooking.DataBind();
         }
 
@@ -34,7 +34,7 @@ namespace RoomBookingSystem
             PanAddRoom.Visible = true;
             txtDate.Text = "";
             txtEndTime.Text = "";
-            TxtRoomName.Text = "";
+            txtRoomName.Text = "";
             txtStartTime.Text = "";
         }
 
@@ -44,7 +44,9 @@ namespace RoomBookingSystem
             DAL mydal = new DAL(conn);
             mydal.AddParam("StartTime", txtStartTime.Text);
             mydal.AddParam("EndTime", txtEndTime.Text);
-            mydal.ExecuteProcedure("spUpdateBooking");
+            mydal.AddParam("RoomName", txtRoomName.Text);
+            mydal.AddParam("FullName", txtName.Text);
+            mydal.ExecuteProcedure("spBookRoom");
             loadBookings();
         }
 
@@ -57,12 +59,12 @@ namespace RoomBookingSystem
                     deleteRoom();
                     break;
                 case "upd":
-                    updateRoom();
+                    getRoominfo();
                     break;
             }
         }
 
-        private void updateRoom()
+        private void getRoominfo()
         {
             PanAddRoom.Visible = true;
             DAL mydal = new DAL(conn);
@@ -71,6 +73,7 @@ namespace RoomBookingSystem
             ds = mydal.ExecuteProcedure("spGetBookings");
             txtStartTime.Text = ds.Tables[0].Rows[0]["StartTime"].ToString();
             txtEndTime.Text = ds.Tables[0].Rows[0]["EndTime"].ToString();
+
         }
 
         private void deleteRoom()

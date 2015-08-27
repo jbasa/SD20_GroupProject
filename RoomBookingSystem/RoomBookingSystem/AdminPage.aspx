@@ -14,10 +14,14 @@
                     <asp:GridView ID="GVAdminBooking" AutoGenerateColumns="False" DataKeyNames="BookingID" OnRowCommand="GVAdminBooking_RowCommand" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%">
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
+                            <asp:BoundField HeaderText="Room ID" DataField="RoomID" />
+                            <asp:BoundField HeaderText="Room Name" DataField="RoomName" />
+                            <asp:BoundField HeaderText="Number OF Chairs" DataField="NumberOfChairs" />
+                            <asp:BoundField HeaderText="Booking ID" DataField="BookingID" />
                             <asp:BoundField HeaderText="Start Time" DataField="StartTime" />
                             <asp:BoundField HeaderText="End Time" DataField="EndTime" />
-                            <asp:BoundField HeaderText="UserID" DataField="UserID" />
-                            <asp:BoundField HeaderText="RoomID" DataField="RoomID" />
+                            <asp:BoundField HeaderText="User ID" DataField="UserID" />
+                            <asp:BoundField HeaderText="User Name" DataField="FullName" />
                             <asp:ButtonField Text="Delete" ButtonType="Button" CommandName="del" ControlStyle-CssClass="btn btn-default" />
                             <asp:ButtonField Text="Update" ButtonType="Button" CommandName="upd" ControlStyle-CssClass="btn btn-default" />
                         </Columns>
@@ -41,8 +45,7 @@
             <div class="panel panel-primary">
                 <asp:Panel ID="PanAddRoom" Visible="false" runat="server">
                     <h5>Room Name</h5>
-                    <asp:TextBox ID="TxtRoomName" runat="server"></asp:TextBox>
-
+                    <asp:TextBox ID="txtRoomName" runat="server"></asp:TextBox>
                     <h5>Capacity</h5>
                     <asp:DropDownList ID="ddlCapacity" runat="server">
                         <asp:ListItem>10</asp:ListItem>
@@ -56,6 +59,8 @@
                     <asp:TextBox ID="txtStartTime" runat="server" type="time"></asp:TextBox>
                     <h5>End Time</h5>
                     <asp:TextBox ID="txtEndTime" runat="server" type="time"></asp:TextBox>
+                    <h5>Name</h5>
+                    <asp:TextBox ID="txtName" runat="server" ></asp:TextBox>
                     <asp:Button ID="btnadd" runat="server" Text="Add" OnClick="btnadd_Click" CssClass="btn btn-default" />
                 </asp:Panel>
             </div>

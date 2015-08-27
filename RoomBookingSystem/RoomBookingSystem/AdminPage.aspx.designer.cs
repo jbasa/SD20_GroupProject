@@ -40,13 +40,13 @@ namespace RoomBookingSystem {
         protected global::System.Web.UI.WebControls.Panel PanAddRoom;
         
         /// <summary>
-        /// TxtRoomName control.
+        /// txtRoomName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtRoomName;
+        protected global::System.Web.UI.WebControls.TextBox txtRoomName;
         
         /// <summary>
         /// ddlCapacity control.
@@ -83,6 +83,15 @@ namespace RoomBookingSystem {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEndTime;
+        
+        /// <summary>
+        /// txtName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtName;
         
         /// <summary>
         /// btnadd control.

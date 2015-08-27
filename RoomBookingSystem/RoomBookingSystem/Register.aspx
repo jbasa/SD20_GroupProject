@@ -3,13 +3,24 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
+    <link href="css/bootstrap-simplex.css" rel="stylesheet" />
+    <script src="js/bootstrap.js"></script>
+
+    <div class="container-fluid">
+       
+        <div class="col-md-12">
+            <div class="page-header">
+                <h1>Please Sign Up</h1>
+            </div>
+
+            <div class="panel panel-primary">
+                <div class="panel-body">
     <table>
         <tr>
             <td>Full Name:
             </td>
             <td>
-                <asp:TextBox ID="txtFullName" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtFullName" runat="server" CssClass="input-default"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -36,9 +47,13 @@
         <tr>
             <td></td>
             <td>
-                <asp:Button ID="btnRegister" runat="server" Text="Register" OnClick="btnRegister_Click" />
+                                <asp:Button ID="btnRegister" runat="server" Text="Register" OnClick="btnRegister_Click" CssClass="btn btn-success" />
             </td>
         </tr>
     </table>
     <asp:Label ID="lblEmail" runat="server" Text=""></asp:Label>
+                </div>
+            </div>
+        </div>
+    </div>
 </asp:Content>

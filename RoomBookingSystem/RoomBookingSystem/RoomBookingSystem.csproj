@@ -60,6 +60,7 @@
     <Content Include="AboutUs.aspx" />
     <Content Include="Booking.aspx" />
     <Content Include="CarouselStyle.css" />
+    <Content Include="Contact.aspx" />
     <Content Include="css\bootstrap-lightbox.css" />
     <Content Include="css\bootstrap-lightbox.min.css" />
     <Content Include="css\bootstrap-simplex.css" />
@@ -106,6 +107,13 @@
     </Compile>
     <Compile Include="Booking.aspx.designer.cs">
       <DependentUpon>Booking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>

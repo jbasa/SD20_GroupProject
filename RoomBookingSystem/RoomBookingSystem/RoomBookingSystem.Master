@@ -8,8 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="js/jquery-2.1.4.js"></script>
     <script src="js/bootstrap.js"></script>
-    <link href="css/bootstrap-simplex.css" rel="stylesheet" />
+    <link href="css/bootstrap.css" rel="stylesheet" />
     <link href="JumbotronStyle.css" rel="stylesheet" />
+    <link href="css/custom.css" rel="stylesheet" />
     <script>
         function GetQueryStringParam(queryStringName) {
             // ***this goes on the global scope
@@ -30,6 +31,10 @@
 
         function CloseModal() {
             $('#login').modal('hide');
+        }
+
+        function CloseUserSettings() {
+            $('#settings').modal('hide');
         }
     </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -52,12 +57,15 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="active"><a href="Index.aspx"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+                        <li><asp:Hyperlink NavigateUrl="AdminPage.aspx" id="hlAdmin" runat="server" Visible="false"><span class="glyphicon glyphicon-king"></span>Admin</asp:Hyperlink></li>
                         <li><a href="Booking.aspx"><span class="glyphicon glyphicon-time"></span>Booking</a></li>
                         <li><a href="AboutUs.aspx"><span class="glyphicon glyphicon-question-sign"></span>About</a></li>
                         <li><a href="Contact.aspx"><span class="glyphicon glyphicon-earphone"></span>Contact</a></li>
-                        <li><a href="Register.aspx"><span class="glyphicon glyphicon-user"></span>Register</a></li>
-                        <li><a href="AdminUsers.aspx"><span class="glyphicon glyphicon-user"></span>Admin Users</a></li>
-                        <li><a href="#login" data-toggle="modal"><span class="glyphicon glyphicon-ok-circle"></span>Login</a></li>
+                        <li><a href="Register.aspx" id="registerLink" runat="server"><span class="glyphicon glyphicon-user"></span>Register</a></li>
+                        <li><a href="#login" id="loginLink" runat="server" data-toggle="modal"><span class="glyphicon glyphicon-ok-circle"></span>Login</a></li>
+                        <li><a href="#settings" id="settingsLink" runat="server" data-toggle="modal" visible="false"><span class="glyphicon glyphicon-cog"></span>Settings</a></li>
+                        <li>
+                            <asp:LinkButton ID="hlLogout" runat="server" Visible="false" OnClick="hlLogout_Click"><span class="glyphicon glyphicon-remove-circle"></span>Logout</asp:LinkButton></li>
                     </ul>
                 </div>
             </div>
@@ -91,6 +99,39 @@
                 </div>
             </div>
         </div>
+
+         <div class="modal fade" id="settings" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>User Settings</h3>
+                </div>
+                <div class="modal-body">
+                    <table>
+                        <tr>
+                                <td style="width: 300px;">Full Name</td>
+                            <td>
+                                <asp:Textbox ID="txtFullName" runat="server"></asp:Textbox></td>
+                        </tr>
+                        <tr>
+                            <td>Password</td>
+                            <td>
+                                <asp:Textbox ID="txtPass" runat="server"></asp:Textbox></td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>
+                                <asp:Textbox ID="txtEmail" runat="server"></asp:Textbox></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <input id="btnClose" runat="server" class="btn btn-default" value="Close" onclick="CloseUserSettings();" />
+                    <asp:Button ID="btnSave" runat="server" Text="Save Changes" CssClass="btn btn-success" OnClick="btnSave_Click"/>
+                </div>
+            </div>
+        </div>
+    </div>
 
         <div style="margin-top: 50px;">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>

@@ -73,9 +73,9 @@
         </div>
 
         <div class="col-md-6">
-            <div class="panel panel-default">
+            <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="text-center">Book Your Room!</h3>
+                    <h2 class="text-center">Book Your Room!</h2>
                 </div>
                 <div class="panel-body">
                     <h5>Floor</h5>
@@ -94,14 +94,14 @@
                     <asp:TextBox ID="txtStartTime" runat="server" type="time"></asp:TextBox>
                     <h5>End Time</h5>
                     <asp:TextBox ID="txtEndTime" runat="server" type="time"></asp:TextBox>
-                    <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" CssClass="btn btn-primary" />
+                    <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" CssClass="btn btn-success" />
                 </div>
             </div>
         </div>
     <div class="col-md-6">
-        <div class="panel panel-default">
+        <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="text-center">Available Rooms</h3>
+                <h2 class="text-center">Available Rooms</h2>
             </div>
             <div class="panel-body text-center">
                     <asp:GridView ID="gvAvailableRooms" AutoGenerateColumns="False" runat="server" OnRowCommand="gvAvailableRooms_RowCommand" DataKeyNames="RoomID" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None" CssClass="text-center">

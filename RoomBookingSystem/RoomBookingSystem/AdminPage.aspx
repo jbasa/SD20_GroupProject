@@ -35,9 +35,20 @@
                         <SortedDescendingCellStyle BackColor="#FCF6C0" />
                         <SortedDescendingHeaderStyle BackColor="#820000" />
                     </asp:GridView>
-                    <asp:Button ID="ButtInsertRoom" runat="server" Text="Add Room" OnClick="ButtInsertRoom_Click" CssClass="btn btn-default" />
+                    <asp:Button ID="ButtInsertBooking" runat="server" Text="Add Booking" OnClick="ButtInsertRoom_Click" CssClass="btn btn-default" />
                 </div>
             </div>
+        </div>
+        <div>
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" DataKeyNames="RoomID" OnRowCommand="GridView1_RowCommand" >
+                <Columns>
+                    <asp:BoundField HeaderText="Room Name" DataField="RoomName" />
+                    <asp:BoundField HeaderText="Number Of Seats" DataField="NumberOfChairs" />
+                    <asp:ButtonField ButtonType="Button" CommandName="Del" Text="Delete" />
+                    <asp:ButtonField ButtonType="Button" CommandName="Upd" Text="Update" />
+                </Columns>
+            </asp:GridView>
+            <asp:Button ID="BtnInsertRoom" runat="server" Text="Add Room" OnClick="BtnInsertRoom_Click" CssClass="btn btn-default" />
         </div>
 
         <div class="col-md-3">

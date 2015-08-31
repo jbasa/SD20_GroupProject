@@ -107,7 +107,8 @@ Create proc spUpdateBooking
 @StartTime datetime,
 @EndTime datetime,
 @UserID int,
-@RoomID int
+@RoomID int,
+@RoomName varchar
 )
 as begin
 	Update tbBooking
@@ -116,6 +117,7 @@ as begin
 		UserID = @UserID,
 		RoomID = @RoomID
 	where BookingID = @BookingID
+
 end
 go
 
@@ -191,7 +193,8 @@ as begin
 	where UserID = @UserID
 end
 go
-
+--exec spUpdateUser @UserID = 1, @FullName = 'Adam Kuharski', @Email = 'adam.kuharski@robertsoncollege.net', @Password = 'adamkuharski'
+go
 	-- Delete User --
 Create proc spDeleteUser
 (
@@ -212,7 +215,7 @@ Create proc spGetUsers
 )
 as begin
 	select * from tbUsers
-	where UserID = ISNULL (@UserID, UserID)
+	where UserID = ISNULL (@UserID, UserID) order by FullName
 end
 go
 

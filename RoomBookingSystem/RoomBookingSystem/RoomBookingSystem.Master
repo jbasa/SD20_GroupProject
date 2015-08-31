@@ -107,6 +107,7 @@
             </div>
         </div>
 
+        <asp:Panel runat="server" Visible="false" ID="pnlUserSettings">
          <div class="modal fade" id="settings" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -118,29 +119,31 @@
                         <tr>
                                 <td style="width: 300px;">Full Name</td>
                             <td>
-                                <asp:Textbox ID="txtFullName" runat="server"></asp:Textbox></td>
+                                        <asp:TextBox ID="txtFullName" runat="server"></asp:TextBox></td>
                         </tr>
                         <tr>
                             <td>Password</td>
                             <td>
-                                <asp:Textbox ID="txtPass" runat="server"></asp:Textbox></td>
+                                        <asp:TextBox ID="txtPass" runat="server"></asp:TextBox></td>
                         </tr>
                         <tr>
                             <td>Email</td>
                             <td>
-                                <asp:Textbox ID="txtEmail" runat="server"></asp:Textbox></td>
+                                        <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox></td>
                         </tr>
                     </table>
                 </div>
                 <div class="modal-footer">
                     <input id="btnClose" runat="server" class="btn btn-default" value="Close" onclick="CloseUserSettings();" />
-                    <asp:Button ID="btnSave" runat="server" Text="Save Changes" CssClass="btn btn-success" OnClick="btnSave_Click"/>
-                </div>
+                            <asp:Button ID="btnSave" runat="server" Text="Save Changes" CssClass="btn btn-success" OnClick="btnSave_Click" />
             </div>
         </div>
     </div>
 
+            </div>
+        </asp:Panel>
         <div style="margin-top: 50px;">
+
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
         </div>
     </form>

@@ -182,7 +182,8 @@ as begin
 	where UserID = @UserID
 end
 go
-
+--exec spUpdateUser @UserID = 1, @FullName = 'Adam Kuharski', @Email = 'adam.kuharski@robertsoncollege.net', @Password = 'adamkuharski'
+go
 	-- Delete User --
 Create proc spDeleteUser
 (

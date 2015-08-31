@@ -104,7 +104,7 @@ namespace RoomBookingSystem
         {
             DAL mydal = new DAL(conn);
             DataSet ds = new DataSet();
-            ds = mydal.ExecuteProcedure("spgetRoomName");
+            ds = mydal.ExecuteProcedure("spGetRoomName");
             DDLRoom.DataSource = ds;
             DDLRoom.DataValueField = "RoomName";
             DDLRoom.DataTextField = "RoomName";

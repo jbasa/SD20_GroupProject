@@ -19,26 +19,30 @@ namespace RoomBookingSystem
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
-            string conn = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            DAL myDal = new DAL(conn);
-            DataSet dsRegister = new DataSet();
-            myDal.AddParam("@FullName", txtFullName.Text);
-            myDal.AddParam("@Email", txtEmail.Text);
-            myDal.AddParam("@Password", txtPassword.Text);
-            dsRegister = myDal.ExecuteProcedure("spCreateUser");
-
-            if (dsRegister.Tables[0].Rows[0]["Message"].ToString() == "Error")
+            if (Page.IsValid)
             {
-                lblMessage.Text = "Error account has already been created";
-                lblMessage.ForeColor = System.Drawing.Color.Red;
+                string conn = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
+                DAL myDal = new DAL(conn);
+                DataSet dsRegister = new DataSet();
+                myDal.AddParam("@FullName", txtFullName.Text);
+                myDal.AddParam("@Email", txtEmail.Text);
+                myDal.AddParam("@Password", txtPassword.Text);
+                dsRegister = myDal.ExecuteProcedure("spCreateUser");
 
+                if (dsRegister.Tables[0].Rows[0]["Message"].ToString() == "Error")
+                {
+                    lblMessage.Text = "Error account has already been created";
+                    lblMessage.ForeColor = System.Drawing.Color.Red;
+
+                }
+                else
+                {
+                    lblMessage.Text = "User Created, Please go to Log In to continue";
+                    //ConfirmationEmail();
+                    //lblEmail.Text = "A confirmation email has been sent to your email address";
+                }
             }
-            else
-            {
-                lblMessage.Text = "User Created, Please go to Log In to continue";
-                //ConfirmationEmail();
-                //lblEmail.Text = "A confirmation email has been sent to your email address";
-            }
+        
 
 
         }

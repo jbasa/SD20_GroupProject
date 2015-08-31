@@ -99,29 +99,37 @@ namespace RoomBookingSystem
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            DAL myDal = new DAL(conn);
-            DataSet dsAdd = new DataSet();
-            myDal.AddParam("@FullName", txtFullName.Text);
-            myDal.AddParam("@Email", txtEmail.Text);
-            myDal.AddParam("@Password", txtPassword.Text);
-            myDal.AddParam("@SecurityLevel", int.Parse(ddlSecurityLevel.SelectedValue));
-            dsAdd = myDal.ExecuteProcedure("spAdminCreateUser");
-            LoadUsers();
-            pnlRight.Visible = false;
+            if (Page.IsValid)
+            {
+                DAL myDal = new DAL(conn);
+                DataSet dsAdd = new DataSet();
+                myDal.AddParam("@FullName", txtFullName.Text);
+                myDal.AddParam("@Email", txtEmail.Text);
+                myDal.AddParam("@Password", txtPassword.Text);
+                myDal.AddParam("@SecurityLevel", int.Parse(ddlSecurityLevel.SelectedValue));
+                dsAdd = myDal.ExecuteProcedure("spAdminCreateUser");
+                LoadUsers();
+                pnlRight.Visible = false;
+            }
+          
         }
 
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
-            DAL myDal = new DAL(conn);
-            DataSet dsUpdate = new DataSet();
-            myDal.AddParam("@UserID", gvUsers.SelectedDataKey.Value);
-            myDal.AddParam("@FullName", txtFullName.Text);
-            myDal.AddParam("@Email", txtEmail.Text);
-            myDal.AddParam("@Password", txtPassword.Text);
-            myDal.AddParam("@SecurityLevel", int.Parse(ddlSecurityLevel.SelectedValue));
-            dsUpdate = myDal.ExecuteProcedure("spAdminUpdateUser");
-            LoadUsers();
-            pnlRight.Visible = false;
+            if (Page.IsValid)
+            {
+                DAL myDal = new DAL(conn);
+                DataSet dsUpdate = new DataSet();
+                myDal.AddParam("@UserID", gvUsers.SelectedDataKey.Value);
+                myDal.AddParam("@FullName", txtFullName.Text);
+                myDal.AddParam("@Email", txtEmail.Text);
+                myDal.AddParam("@Password", txtPassword.Text);
+                myDal.AddParam("@SecurityLevel", int.Parse(ddlSecurityLevel.SelectedValue));
+                dsUpdate = myDal.ExecuteProcedure("spAdminUpdateUser");
+                LoadUsers();
+                pnlRight.Visible = false;
+            }
+         
 
         }
 

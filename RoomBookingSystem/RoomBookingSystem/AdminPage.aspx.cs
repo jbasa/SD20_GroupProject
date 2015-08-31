@@ -88,5 +88,10 @@ namespace RoomBookingSystem
             DAL mydal = new DAL(conn);
             
         }
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            PanAddRoom.Visible = false;
+        }
     }
 }

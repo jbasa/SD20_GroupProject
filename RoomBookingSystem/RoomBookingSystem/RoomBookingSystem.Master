@@ -57,7 +57,14 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="active"><a href="Index.aspx"><span class="glyphicon glyphicon-home"></span>Home</a></li>
-                        <li><asp:Hyperlink NavigateUrl="AdminPage.aspx" id="hlAdmin" runat="server" Visible="false"><span class="glyphicon glyphicon-king"></span>Admin</asp:Hyperlink></li>
+                        <li class="dropdown"><asp:Hyperlink CssClass="dropdown-toggle" data-toggle="dropdown" NavigateUrl="AdminPage.aspx" id="hlAdmin" runat="server" Visible="false"><span class="glyphicon glyphicon-king"></span>Admin<b class="caret"></b></asp:Hyperlink>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-header">Admin & Dashboard</li>
+                                <li><a href="AdminPage.aspx">Admin Bookings</a></li>
+                                <li><a href="AdminUsers.aspx">Admin Users</a></li>
+                            </ul>
+                        </li>
+
                         <li><a href="Booking.aspx"><span class="glyphicon glyphicon-time"></span>Booking</a></li>
                         <li><a href="AboutUs.aspx"><span class="glyphicon glyphicon-question-sign"></span>About</a></li>
                         <li><a href="Contact.aspx"><span class="glyphicon glyphicon-earphone"></span>Contact</a></li>

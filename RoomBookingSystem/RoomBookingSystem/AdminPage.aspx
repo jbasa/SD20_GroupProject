@@ -4,7 +4,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-fluid">
-
         <div class="col-md-9">
             <div class="page-header">
                 <h1>Admin<small> CRUD for Booked Classrooms</small></h1>

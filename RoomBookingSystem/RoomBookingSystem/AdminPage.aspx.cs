@@ -133,5 +133,10 @@ namespace RoomBookingSystem
         {
 
         }
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            PanAddRoom.Visible = false;
+        }
     }
 }

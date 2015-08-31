@@ -52,36 +52,48 @@
         </div>
 
         <div class="col-md-3">
-            <div class="panel-heading"><h1>Add Classroom</h1></div>
+            <div class="panel-heading"><h1>Classroom Info</h1></div>
             <div class="panel panel-primary">
                 <asp:Panel ID="PanAddRoom" Visible="false" runat="server">
-                    <h5>Room Name</h5>
-                    <asp:DropDownList ID="DDLRoom" runat="server"></asp:DropDownList>
-                    <asp:Panel ID="CapacityPan" runat="server" Visible="false">
-                    <h5>Capacity</h5>
-                    <asp:DropDownList ID="ddlCapacity" runat="server">
+                    <table>
+                        <tr>
+                            <td><h5>Room Name</h5></td>
+                            <td><asp:DropDownList ID="DDLRoom" runat="server"></asp:DropDownList></td>
+                        </tr>
+                        <tr>
+                            <td><h5>Capacity</h5></td>
+                            <td><asp:DropDownList ID="ddlCapacity" runat="server">
                         <asp:ListItem>10</asp:ListItem>
                         <asp:ListItem>20</asp:ListItem>
                         <asp:ListItem>30</asp:ListItem>
                         <asp:ListItem>40+</asp:ListItem>
-                    </asp:DropDownList></asp:Panel>
-                    <h5>Date</h5>
-                    <asp:TextBox ID="txtDate" runat="server" type="date"></asp:TextBox>
-                    <h5>Start Time</h5>
-                    <asp:TextBox ID="txtStartTime" runat="server" type="time"></asp:TextBox>
-                    <h5>End Time</h5>
-                    <asp:TextBox ID="txtEndTime" runat="server" type="time"></asp:TextBox>
-                    <h5>Name</h5>
-                    <asp:DropDownList ID="DDLUsers" runat="server"></asp:DropDownList>
-                    <asp:Button ID="btnadd" runat="server" Text="Add" Visible="false" OnClick="btnadd_Click" CssClass="btn btn-default" />
-                    <asp:Button ID="btnupdate" runat="server" Text="Update" Visible="false" OnClick="btnupdate_Click" CssClass="btn btn-default" />
+                    </asp:DropDownList></td>
+                        </tr>
+                        <tr>
+                            <td><h5>Date</h5></td>
+                            <td><asp:TextBox ID="txtDate" runat="server" type="date"></asp:TextBox></td>
+                        </tr>
+                        <tr>
+                            <td><h5>Start Time</h5></td>
+                            <td><asp:TextBox ID="txtStartTime" runat="server" type="time"></asp:TextBox></td>
+                        </tr>
+                        <tr>
+                            <td><h5>End Time</h5></td>
+                            <td><asp:TextBox ID="txtEndTime" runat="server" type="time"></asp:TextBox></td>
+                        </tr>
+                        <tr>
+                            <td><h5>Name</h5></td>
+                            <td><asp:TextBox ID="txtName" runat="server" ></asp:TextBox><br /></td>
+                        </tr>
+                        <tr>
+                            <td><asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click"/></td>
+                            <td><asp:Button ID="btnadd" runat="server" Text="Add" OnClick="btnadd_Click" CssClass="btn btn-default" /></td>
+                        </tr>
+                    </table>                 
                 </asp:Panel>
             </div>
         </div>
     </div>
-
-
-
     <asp:Panel ID="Admin" runat="server">
     </asp:Panel>
 </asp:Content>

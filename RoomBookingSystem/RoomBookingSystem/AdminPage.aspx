@@ -35,9 +35,20 @@
                         <SortedDescendingCellStyle BackColor="#FCF6C0" />
                         <SortedDescendingHeaderStyle BackColor="#820000" />
                     </asp:GridView>
-                    <asp:Button ID="ButtInsertRoom" runat="server" Text="Add Room" OnClick="ButtInsertRoom_Click" CssClass="btn btn-default" />
+                    <asp:Button ID="ButtInsertBooking" runat="server" Text="Add Booking" OnClick="ButtInsertRoom_Click" CssClass="btn btn-default" />
                 </div>
             </div>
+        </div>
+        <div>
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" DataKeyNames="RoomID" OnRowCommand="GridView1_RowCommand" >
+                <Columns>
+                    <asp:BoundField HeaderText="Room Name" DataField="RoomName" />
+                    <asp:BoundField HeaderText="Number Of Seats" DataField="NumberOfChairs" />
+                    <asp:ButtonField ButtonType="Button" CommandName="Del" Text="Delete" />
+                    <asp:ButtonField ButtonType="Button" CommandName="Upd" Text="Update" />
+                </Columns>
+            </asp:GridView>
+            <asp:Button ID="BtnInsertRoom" runat="server" Text="Add Room" OnClick="BtnInsertRoom_Click" CssClass="btn btn-default" />
         </div>
 
         <div class="col-md-3">
@@ -46,13 +57,14 @@
                 <asp:Panel ID="PanAddRoom" Visible="false" runat="server">
                     <h5>Room Name</h5>
                     <asp:DropDownList ID="DDLRoom" runat="server"></asp:DropDownList>
+                    <asp:Panel ID="CapacityPan" runat="server" Visible="false">
                     <h5>Capacity</h5>
                     <asp:DropDownList ID="ddlCapacity" runat="server">
                         <asp:ListItem>10</asp:ListItem>
                         <asp:ListItem>20</asp:ListItem>
                         <asp:ListItem>30</asp:ListItem>
                         <asp:ListItem>40+</asp:ListItem>
-                    </asp:DropDownList>
+                    </asp:DropDownList></asp:Panel>
                     <h5>Date</h5>
                     <asp:TextBox ID="txtDate" runat="server" type="date"></asp:TextBox>
                     <h5>Start Time</h5>
@@ -60,8 +72,9 @@
                     <h5>End Time</h5>
                     <asp:TextBox ID="txtEndTime" runat="server" type="time"></asp:TextBox>
                     <h5>Name</h5>
-                    <asp:TextBox ID="txtName" runat="server" ></asp:TextBox>
-                    <asp:Button ID="btnadd" runat="server" Text="Add" OnClick="btnadd_Click" CssClass="btn btn-default" />
+                    <asp:DropDownList ID="DDLUsers" runat="server"></asp:DropDownList>
+                    <asp:Button ID="btnadd" runat="server" Text="Add" Visible="false" OnClick="btnadd_Click" CssClass="btn btn-default" />
+                    <asp:Button ID="btnupdate" runat="server" Text="Update" Visible="false" OnClick="btnupdate_Click" CssClass="btn btn-default" />
                 </asp:Panel>
             </div>
         </div>

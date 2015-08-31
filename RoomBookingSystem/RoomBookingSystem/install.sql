@@ -107,7 +107,8 @@ Create proc spUpdateBooking
 @StartTime datetime,
 @EndTime datetime,
 @UserID int,
-@RoomID int
+@RoomID int,
+@RoomName varchar
 )
 as begin
 	Update tbBooking
@@ -116,6 +117,7 @@ as begin
 		UserID = @UserID,
 		RoomID = @RoomID
 	where BookingID = @BookingID
+
 end
 go
 
@@ -212,7 +214,7 @@ Create proc spGetUsers
 )
 as begin
 	select * from tbUsers
-	where UserID = ISNULL (@UserID, UserID)
+	where UserID = ISNULL (@UserID, UserID) order by FullName
 end
 go
 
@@ -267,5 +269,17 @@ as begin
 	from tbUsers
 	where FullName = @FullName and
 		  Password = @Password 
+end
+go
+
+-- Crud For Rooms --
+
+Create proc spgetRoomName
+(
+@RoomID int = null
+)
+as begin
+Select RoomName From tbRoom 
+where RoomID = isnull (@RoomID, RoomID) order by RoomName
 end
 go

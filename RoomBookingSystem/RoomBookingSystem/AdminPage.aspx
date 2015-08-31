@@ -40,10 +40,14 @@
             </div>
         </div>
         <div>
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" DataKeyNames="RoomID" OnRowCommand="GridView1_RowCommand" >
+            <asp:GridView ID="GVRooms" runat="server" AutoGenerateColumns="false" DataKeyNames="RoomID" OnRowCommand="GVRooms_RowCommand" >
                 <Columns>
+                    <asp:BoundField HeaderText="RoomId" DataField="RoomID" />
                     <asp:BoundField HeaderText="Room Name" DataField="RoomName" />
                     <asp:BoundField HeaderText="Number Of Seats" DataField="NumberOfChairs" />
+                    <asp:BoundField HeaderText="Floor" DataField="FloorNumber" />
+                    <asp:BoundField HeaderText="Start Time" DataField="StartTime" />
+                    <asp:BoundField HeaderText="End Time" DataField="EndTime" />
                     <asp:ButtonField ButtonType="Button" CommandName="Del" Text="Delete" />
                     <asp:ButtonField ButtonType="Button" CommandName="Upd" Text="Update" />
                 </Columns>
@@ -60,7 +64,7 @@
                             <td><h5>Room Name</h5></td>
                             <td><asp:DropDownList ID="DDLRoom" runat="server"></asp:DropDownList></td>
                         </tr>
-                        <tr>
+                       <asp:Panel ID="PanCapacity" runat="server" Visible="false"><tr>
                             <td><h5>Capacity</h5></td>
                             <td><asp:DropDownList ID="ddlCapacity" runat="server">
                         <asp:ListItem>10</asp:ListItem>
@@ -68,7 +72,7 @@
                         <asp:ListItem>30</asp:ListItem>
                         <asp:ListItem>40+</asp:ListItem>
                     </asp:DropDownList></td>
-                        </tr>
+                        </tr></asp:Panel>
                         <tr>
                             <td><h5>Date</h5></td>
                             <td><asp:TextBox ID="txtDate" runat="server" type="date"></asp:TextBox></td>
@@ -83,11 +87,13 @@
                         </tr>
                         <tr>
                             <td><h5>Name</h5></td>
-                            <td><asp:TextBox ID="txtName" runat="server" ></asp:TextBox><br /></td>
+                            <td>
+                                <asp:DropDownList ID="DDLUsers" runat="server"></asp:DropDownList><br /></td>
                         </tr>
                         <tr>
                             <td><asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click"/></td>
                             <td><asp:Button ID="btnadd" runat="server" Text="Add" OnClick="btnadd_Click" CssClass="btn btn-default" /></td>
+                            <td><asp:Button ID="btnupdate" runat="server" Text="Update" CssClass="btn btn-default" /></td>
                         </tr>
                     </table>                 
                 </asp:Panel>

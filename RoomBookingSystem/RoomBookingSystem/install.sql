@@ -315,3 +315,38 @@ begin
 end
 end
 go
+
+-- For the Rooms Grid View --
+--Create proc spSearch
+--(
+--@FloorNumber int = null,
+--@NumberOfChairs int = null,
+--@StartTime datetime,
+--@EndTime datetime
+--)
+--as begin
+--	-- Find all rooms that match search criteria
+--	Select r.RoomID, RoomName, FloorNumber, NumberOfChairs
+--		from tbFloor f JOIN tbRoom r ON f.FloorID = r.FloorID
+--		where (@FloorNumber IS NULL OR f.FloorNumber = @FloorNumber)
+--		AND (@NumberOfChairs IS NULL OR r.NumberOfChairs >= @NumberOfChairs)
+--		AND r.RoomID NOT IN 
+--			( -- FIND ALL THE ROOMS THAT ARE BOOKED DURING THE START/END DATES.. dont join those! NOT IN NOT IN
+--				SELECT b.RoomId FROM tbBooking b
+--					WHERE	@StartTime >= StartTime AND @StartTime <= EndTime
+--					OR		@EndTime >= StartTime AND @EndTime <= EndTime
+--					OR		@StartTime <= StartTime AND @EndTime >= EndTime
+--			)
+--end
+--go
+
+-- For the DropDown List --
+Create proc spGetRoomName
+(
+@RoomID int = null
+)
+as begin
+select RoomName from tbRoom
+where RoomID = ISNULL (@RoomID, RoomID)
+end
+go

@@ -21,7 +21,15 @@ namespace RoomBookingSystem
                 loadBookings();
                 ddlRoom();
                 ddlUser();
+                loadRooms();
             }
+        }
+
+        private void loadRooms()
+        {
+            //DAL mydal = new DAL(conn);
+            //GVRooms.DataSource = mydal.ExecuteProcedure("spGVRooms");
+            //GVRooms.DataBind();
         }
 
         private void loadBookings()
@@ -40,7 +48,7 @@ namespace RoomBookingSystem
             txtStartTime.Text = "";
             btnadd.Visible = true;
             btnupdate.Visible = false;
-            CapacityPan.Visible = true;
+            PanCapacity.Visible = true;
         }
 
         protected void btnadd_Click(object sender, EventArgs e)
@@ -76,7 +84,7 @@ namespace RoomBookingSystem
             PanAddRoom.Visible = true;
             btnadd.Visible = false;
             btnupdate.Visible = true;
-            CapacityPan.Visible = false;
+            PanCapacity.Visible = false;
             DAL mydal = new DAL(conn);
             mydal.AddParam("BookingID", GVAdminBooking.SelectedDataKey.Value.ToString());
             DataSet ds = new DataSet();
@@ -96,7 +104,7 @@ namespace RoomBookingSystem
         {
             DAL mydal = new DAL(conn);
             DataSet ds = new DataSet();
-            ds = mydal.ExecuteProcedure("spgetRoomName");
+            ds = mydal.ExecuteProcedure("spGetRoomName");
             DDLRoom.DataSource = ds;
             DDLRoom.DataValueField = "RoomName";
             DDLRoom.DataTextField = "RoomName";
@@ -124,7 +132,7 @@ namespace RoomBookingSystem
             mydal.ExecuteProcedure("spUpdateBooking");
         }
 
-        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        protected void GVRooms_RowCommand(object sender, GridViewCommandEventArgs e)
         {
 
         }

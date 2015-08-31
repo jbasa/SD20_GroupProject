@@ -31,13 +31,13 @@ namespace RoomBookingSystem {
         protected global::System.Web.UI.WebControls.Button ButtInsertBooking;
         
         /// <summary>
-        /// GridView1 control.
+        /// GVRooms control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView GVRooms;
         
         /// <summary>
         /// BtnInsertRoom control.
@@ -67,13 +67,13 @@ namespace RoomBookingSystem {
         protected global::System.Web.UI.WebControls.DropDownList DDLRoom;
         
         /// <summary>
-        /// CapacityPan control.
+        /// PanCapacity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel CapacityPan;
+        protected global::System.Web.UI.WebControls.Panel PanCapacity;
         
         /// <summary>
         /// ddlCapacity control.

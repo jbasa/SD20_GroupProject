@@ -141,6 +141,15 @@ as begin
 end
 go
 
+Create proc spgetBookingUserRoom
+(
+@BookingID int = null
+)
+as begin
+select tbBooking.RoomID, RoomName, NumberOfChairs, BookingID, StartTime, EndTime, tbBooking.UserID, FullName from tbBooking, tbRoom, tbUsers
+where tbBooking.RoomID = tbRoom.RoomID and tbUsers.UserID = tbBooking.UserID and tbBooking.BookingID = isnull (@BookingID, BookingID)
+end
+go
 											-- USER CRUD --
 
 	-- Create User --

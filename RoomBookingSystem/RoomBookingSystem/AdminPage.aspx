@@ -4,6 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-fluid">
+        <%--make drop down list for rooms and users--%>
         <div class="col-md-9">
             <div class="page-header">
                 <h1>Admin<small> CRUD for Booked Classrooms</small></h1>
@@ -44,7 +45,7 @@
             <div class="panel panel-primary">
                 <asp:Panel ID="PanAddRoom" Visible="false" runat="server">
                     <h5>Room Name</h5>
-                    <asp:TextBox ID="txtRoomName" runat="server"></asp:TextBox>
+                    <asp:DropDownList ID="DDLRoom" runat="server"></asp:DropDownList>
                     <h5>Capacity</h5>
                     <asp:DropDownList ID="ddlCapacity" runat="server">
                         <asp:ListItem>10</asp:ListItem>

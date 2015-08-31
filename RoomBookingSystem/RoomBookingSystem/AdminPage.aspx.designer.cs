@@ -40,13 +40,13 @@ namespace RoomBookingSystem {
         protected global::System.Web.UI.WebControls.Panel PanAddRoom;
         
         /// <summary>
-        /// txtRoomName control.
+        /// DDLRoom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRoomName;
+        protected global::System.Web.UI.WebControls.DropDownList DDLRoom;
         
         /// <summary>
         /// ddlCapacity control.

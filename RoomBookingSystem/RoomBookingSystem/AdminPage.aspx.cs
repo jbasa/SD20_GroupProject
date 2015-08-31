@@ -19,6 +19,7 @@ namespace RoomBookingSystem
             if(!IsPostBack)
             {
                 loadBookings();
+                ddlRoom();
             }
         }
 
@@ -34,7 +35,6 @@ namespace RoomBookingSystem
             PanAddRoom.Visible = true;
             txtDate.Text = "";
             txtEndTime.Text = "";
-            txtRoomName.Text = "";
             txtStartTime.Text = "";
         }
 
@@ -44,7 +44,7 @@ namespace RoomBookingSystem
             DAL mydal = new DAL(conn);
             mydal.AddParam("StartTime", txtStartTime.Text);
             mydal.AddParam("EndTime", txtEndTime.Text);
-            mydal.AddParam("RoomName", txtRoomName.Text);
+            mydal.AddParam("RoomName", DDLRoom.SelectedItem.Value.ToString());
             mydal.AddParam("FullName", txtName.Text);
             mydal.ExecuteProcedure("spBookRoom");
             loadBookings();
@@ -82,6 +82,11 @@ namespace RoomBookingSystem
             mydal.AddParam("bookingID", GVAdminBooking.SelectedDataKey.Value.ToString());
             mydal.ExecuteProcedure("spDeleteBooking");
             loadBookings();
+        }
+        private void ddlRoom()
+        {
+            DAL mydal = new DAL(conn);
+            
         }
     }
 }

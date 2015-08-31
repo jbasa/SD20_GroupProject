@@ -269,3 +269,46 @@ as begin
 		  Password = @Password 
 end
 go
+
+-- Admin Update User w/ Security Level-- 
+Create proc spAdminUpdateUser
+(
+@UserID int,
+@FullName varchar (30),
+@Email varchar (60),
+@Password varchar (30),
+@SecurityLevel int
+)
+as begin
+	Update tbUsers
+	Set FullName = @FullName,
+		Email = @Email,
+		Password = @Password,
+		SecurityLevel = @SecurityLevel
+	where UserID = @UserID
+end
+go
+
+-- Admin Create User w/ Security Level --
+Create proc spAdminCreateUser
+(
+@FullName varchar (30),
+@Email varchar (60),
+@Password varchar (30),
+@SecurityLevel int
+)
+as begin 
+	if exists (select FullName from tbUsers
+	where FullName = @FullName)
+begin
+	select 'Error' as Message
+end
+else
+begin
+	insert into tbUsers(Fullname, Email, Password, SecurityLevel) values
+						(@FullName, @Email, @Password, @SecurityLevel)
+	Select 'Ok' as Message
+	select SCOPE_IDENTITY() as [NewUser]
+end
+end
+go

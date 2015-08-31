@@ -69,6 +69,7 @@ namespace RoomBookingSystem
             txtFullName.Text = "";
             txtEmail.Text = "";
             txtPassword.Text = "";
+            ddlSecurityLevel.SelectedValue = "";
         }
 
         private void PopulateFields(int UserID)
@@ -88,6 +89,7 @@ namespace RoomBookingSystem
             txtFullName.Text = row["FullName"].ToString();
             txtEmail.Text = row["Email"].ToString();
             txtPassword.Text = row["Password"].ToString();
+            ddlSecurityLevel.SelectedValue = row["SecurityLevel"].ToString();
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
@@ -102,7 +104,8 @@ namespace RoomBookingSystem
             myDal.AddParam("@FullName", txtFullName.Text);
             myDal.AddParam("@Email", txtEmail.Text);
             myDal.AddParam("@Password", txtPassword.Text);
-            dsAdd = myDal.ExecuteProcedure("spCreateUser");
+            myDal.AddParam("@SecurityLevel", int.Parse(ddlSecurityLevel.SelectedValue));
+            dsAdd = myDal.ExecuteProcedure("spAdminCreateUser");
             LoadUsers();
             pnlRight.Visible = false;
         }
@@ -115,7 +118,8 @@ namespace RoomBookingSystem
             myDal.AddParam("@FullName", txtFullName.Text);
             myDal.AddParam("@Email", txtEmail.Text);
             myDal.AddParam("@Password", txtPassword.Text);
-            dsUpdate = myDal.ExecuteProcedure("spUpdateUser");
+            myDal.AddParam("@SecurityLevel", int.Parse(ddlSecurityLevel.SelectedValue));
+            dsUpdate = myDal.ExecuteProcedure("spAdminUpdateUser");
             LoadUsers();
             pnlRight.Visible = false;
 

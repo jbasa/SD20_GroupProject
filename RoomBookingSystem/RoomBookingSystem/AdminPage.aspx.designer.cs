@@ -22,13 +22,31 @@ namespace RoomBookingSystem {
         protected global::System.Web.UI.WebControls.GridView GVAdminBooking;
         
         /// <summary>
-        /// ButtInsertRoom control.
+        /// ButtInsertBooking control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtInsertRoom;
+        protected global::System.Web.UI.WebControls.Button ButtInsertBooking;
+        
+        /// <summary>
+        /// GridView1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridView1;
+        
+        /// <summary>
+        /// BtnInsertRoom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnInsertRoom;
         
         /// <summary>
         /// PanAddRoom control.
@@ -40,13 +58,22 @@ namespace RoomBookingSystem {
         protected global::System.Web.UI.WebControls.Panel PanAddRoom;
         
         /// <summary>
-        /// txtRoomName control.
+        /// DDLRoom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRoomName;
+        protected global::System.Web.UI.WebControls.DropDownList DDLRoom;
+        
+        /// <summary>
+        /// CapacityPan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel CapacityPan;
         
         /// <summary>
         /// ddlCapacity control.
@@ -85,13 +112,22 @@ namespace RoomBookingSystem {
         protected global::System.Web.UI.WebControls.TextBox txtEndTime;
         
         /// <summary>
-        /// txtName control.
+        /// DDLUsers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtName;
+        protected global::System.Web.UI.WebControls.DropDownList DDLUsers;
+        
+        /// <summary>
+        /// btnCancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancel;
         
         /// <summary>
         /// btnadd control.
@@ -101,6 +137,15 @@ namespace RoomBookingSystem {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnadd;
+        
+        /// <summary>
+        /// btnupdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnupdate;
         
         /// <summary>
         /// Admin control.

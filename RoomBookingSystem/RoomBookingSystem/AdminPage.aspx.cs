@@ -19,6 +19,8 @@ namespace RoomBookingSystem
             if(!IsPostBack)
             {
                 loadBookings();
+                ddlRoom();
+                ddlUser();
             }
         }
 
@@ -31,21 +33,25 @@ namespace RoomBookingSystem
 
         protected void ButtInsertRoom_Click(object sender, EventArgs e)
         {
+            // Adding a new Booking //
             PanAddRoom.Visible = true;
             txtDate.Text = "";
             txtEndTime.Text = "";
-            txtRoomName.Text = "";
             txtStartTime.Text = "";
+            btnadd.Visible = true;
+            btnupdate.Visible = false;
+            CapacityPan.Visible = true;
         }
 
         protected void btnadd_Click(object sender, EventArgs e)
         {
+            // Adding a new Booking //
             PanAddRoom.Visible = false;
             DAL mydal = new DAL(conn);
             mydal.AddParam("StartTime", txtStartTime.Text);
             mydal.AddParam("EndTime", txtEndTime.Text);
-            mydal.AddParam("RoomName", txtRoomName.Text);
-            mydal.AddParam("FullName", txtName.Text);
+            mydal.AddParam("RoomName", DDLRoom.SelectedItem.Value.ToString());
+            mydal.AddParam("FullName", DDLUsers.SelectedValue.ToString());
             mydal.ExecuteProcedure("spBookRoom");
             loadBookings();
         }
@@ -66,14 +72,17 @@ namespace RoomBookingSystem
 
         private void getRoominfo()
         {
+            // info for Updateing a Booking //
             PanAddRoom.Visible = true;
+            btnadd.Visible = false;
+            btnupdate.Visible = true;
+            CapacityPan.Visible = false;
             DAL mydal = new DAL(conn);
             mydal.AddParam("BookingID", GVAdminBooking.SelectedDataKey.Value.ToString());
             DataSet ds = new DataSet();
-            ds = mydal.ExecuteProcedure("spGetBookings");
+            ds = mydal.ExecuteProcedure("spgetBookingUserRoom");
             txtStartTime.Text = ds.Tables[0].Rows[0]["StartTime"].ToString();
             txtEndTime.Text = ds.Tables[0].Rows[0]["EndTime"].ToString();
-
         }
 
         private void deleteRoom()
@@ -82,6 +91,52 @@ namespace RoomBookingSystem
             mydal.AddParam("bookingID", GVAdminBooking.SelectedDataKey.Value.ToString());
             mydal.ExecuteProcedure("spDeleteBooking");
             loadBookings();
+        }
+        private void ddlRoom()
+        {
+            DAL mydal = new DAL(conn);
+            DataSet ds = new DataSet();
+            ds = mydal.ExecuteProcedure("spgetRoomName");
+            DDLRoom.DataSource = ds;
+            DDLRoom.DataValueField = "RoomName";
+            DDLRoom.DataTextField = "RoomName";
+            DDLRoom.DataBind();
+        }
+        private void ddlUser()
+        {
+            DAL mydal = new DAL(conn);
+            DataSet ds = new DataSet();
+            ds = mydal.ExecuteProcedure("spGetUsers");
+            DDLUsers.DataSource = ds;
+            DDLUsers.DataValueField = "FullName";
+            DDLUsers.DataTextField = "FullName";
+            DDLUsers.DataBind();
+        }
+
+        protected void btnupdate_Click(object sender, EventArgs e)
+        {
+            DAL mydal = new DAL(conn);
+            mydal.AddParam("StartTime", txtStartTime.Text);
+            mydal.AddParam("EndTime", txtEndTime.Text);
+            mydal.AddParam("RoomName", DDLRoom.SelectedValue);
+            mydal.AddParam("FullName", DDLUsers.SelectedValue);
+            mydal.AddParam("BookingID", GVAdminBooking.SelectedDataKey);
+            mydal.ExecuteProcedure("spUpdateBooking");
+        }
+
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+
+        }
+
+        protected void BtnInsertRoom_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            PanAddRoom.Visible = false;
         }
     }
 }

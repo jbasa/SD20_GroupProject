@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-fluid">
-
+        <%--make drop down list for rooms and users--%>
         <div class="col-md-9">
             <div class="page-header">
                 <h1>Admin<small> CRUD for Booked Classrooms</small></h1>
@@ -35,40 +35,65 @@
                         <SortedDescendingCellStyle BackColor="#FCF6C0" />
                         <SortedDescendingHeaderStyle BackColor="#820000" />
                     </asp:GridView>
-                    <asp:Button ID="ButtInsertRoom" runat="server" Text="Add Room" OnClick="ButtInsertRoom_Click" CssClass="btn btn-default" />
+                    <asp:Button ID="ButtInsertBooking" runat="server" Text="Add Booking" OnClick="ButtInsertRoom_Click" CssClass="btn btn-default" />
                 </div>
             </div>
         </div>
+        <div>
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" DataKeyNames="RoomID" OnRowCommand="GridView1_RowCommand" >
+                <Columns>
+                    <asp:BoundField HeaderText="Room Name" DataField="RoomName" />
+                    <asp:BoundField HeaderText="Number Of Seats" DataField="NumberOfChairs" />
+                    <asp:ButtonField ButtonType="Button" CommandName="Del" Text="Delete" />
+                    <asp:ButtonField ButtonType="Button" CommandName="Upd" Text="Update" />
+                </Columns>
+            </asp:GridView>
+            <asp:Button ID="BtnInsertRoom" runat="server" Text="Add Room" OnClick="BtnInsertRoom_Click" CssClass="btn btn-default" />
+        </div>
 
         <div class="col-md-3">
-            <div class="panel-heading"><h1>Add Classroom</h1></div>
+            <div class="panel-heading"><h1>Classroom Info</h1></div>
             <div class="panel panel-primary">
                 <asp:Panel ID="PanAddRoom" Visible="false" runat="server">
-                    <h5>Room Name</h5>
-                    <asp:TextBox ID="txtRoomName" runat="server"></asp:TextBox>
-                    <h5>Capacity</h5>
-                    <asp:DropDownList ID="ddlCapacity" runat="server">
+                    <table>
+                        <tr>
+                            <td><h5>Room Name</h5></td>
+                            <td><asp:DropDownList ID="DDLRoom" runat="server"></asp:DropDownList></td>
+                        </tr>
+                        <tr>
+                            <td><h5>Capacity</h5></td>
+                            <td><asp:DropDownList ID="ddlCapacity" runat="server">
                         <asp:ListItem>10</asp:ListItem>
                         <asp:ListItem>20</asp:ListItem>
                         <asp:ListItem>30</asp:ListItem>
                         <asp:ListItem>40+</asp:ListItem>
-                    </asp:DropDownList>
-                    <h5>Date</h5>
-                    <asp:TextBox ID="txtDate" runat="server" type="date"></asp:TextBox>
-                    <h5>Start Time</h5>
-                    <asp:TextBox ID="txtStartTime" runat="server" type="time"></asp:TextBox>
-                    <h5>End Time</h5>
-                    <asp:TextBox ID="txtEndTime" runat="server" type="time"></asp:TextBox>
-                    <h5>Name</h5>
-                    <asp:TextBox ID="txtName" runat="server" ></asp:TextBox>
-                    <asp:Button ID="btnadd" runat="server" Text="Add" OnClick="btnadd_Click" CssClass="btn btn-default" />
+                    </asp:DropDownList></td>
+                        </tr>
+                        <tr>
+                            <td><h5>Date</h5></td>
+                            <td><asp:TextBox ID="txtDate" runat="server" type="date"></asp:TextBox></td>
+                        </tr>
+                        <tr>
+                            <td><h5>Start Time</h5></td>
+                            <td><asp:TextBox ID="txtStartTime" runat="server" type="time"></asp:TextBox></td>
+                        </tr>
+                        <tr>
+                            <td><h5>End Time</h5></td>
+                            <td><asp:TextBox ID="txtEndTime" runat="server" type="time"></asp:TextBox></td>
+                        </tr>
+                        <tr>
+                            <td><h5>Name</h5></td>
+                            <td><asp:TextBox ID="txtName" runat="server" ></asp:TextBox><br /></td>
+                        </tr>
+                        <tr>
+                            <td><asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click"/></td>
+                            <td><asp:Button ID="btnadd" runat="server" Text="Add" OnClick="btnadd_Click" CssClass="btn btn-default" /></td>
+                        </tr>
+                    </table>                 
                 </asp:Panel>
             </div>
         </div>
     </div>
-
-
-
     <asp:Panel ID="Admin" runat="server">
     </asp:Panel>
 </asp:Content>

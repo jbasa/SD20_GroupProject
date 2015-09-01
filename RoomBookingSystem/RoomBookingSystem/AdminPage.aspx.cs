@@ -174,7 +174,7 @@ namespace RoomBookingSystem
             mydal.AddParam("EndTime", txtEndTime.Text);
             mydal.AddParam("RoomName", DDLRoom.SelectedValue);
             mydal.AddParam("FullName", DDLUsers.SelectedValue);
-            mydal.AddParam("BookingID", GVAdminBooking.SelectedDataKey);
+            mydal.AddParam("BookingID", GVAdminBooking.SelectedDataKey.Value.ToString());
             mydal.ExecuteProcedure("spUpdateBooking");
             loadBookings();
         }

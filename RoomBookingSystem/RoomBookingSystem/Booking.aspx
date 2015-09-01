@@ -27,6 +27,11 @@
         function CloseModal() {
             $('#confirm').modal('hide');
         }
+
+        function SuccessModal() {
+            $('#confirm').modal('hide');
+            $('#success').modal('show');
+        }
     </script>
 
     <div class="container-fluid">
@@ -98,85 +103,100 @@
                 </div>
             </div>
         </div>
-    <div class="col-md-6">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h2 class="text-center">Available Rooms</h2>
-            </div>
-            <div class="panel-body text-center">
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h2 class="text-center">Available Rooms</h2>
+                </div>
+                <div class="panel-body text-center">
                     <asp:GridView ID="gvAvailableRooms" AutoGenerateColumns="False" runat="server" OnRowCommand="gvAvailableRooms_RowCommand" DataKeyNames="RoomID" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None" CssClass="text-center">
-                    <AlternatingRowStyle BackColor="White"></AlternatingRowStyle>
-                    <Columns>
-                        <asp:BoundField DataField="FloorNumber" HeaderText="Floor #" />
-                        <asp:BoundField DataField="RoomName" HeaderText="Room Name" />
-                        <asp:BoundField DataField="NumberOfChairs" HeaderText="Capacity" />
-                        <asp:ButtonField ButtonType="Button" Text="Book" CommandName="book" />
-                    </Columns>
+                        <AlternatingRowStyle BackColor="White"></AlternatingRowStyle>
+                        <Columns>
+                            <asp:BoundField DataField="FloorNumber" HeaderText="Floor #" />
+                            <asp:BoundField DataField="RoomName" HeaderText="Room Name" />
+                            <asp:BoundField DataField="NumberOfChairs" HeaderText="Capacity" />
+                            <asp:ButtonField ButtonType="Button" Text="Book" CommandName="book" />
+                        </Columns>
                         <FooterStyle BackColor="#b81e0d" Font-Bold="True" ForeColor="White"></FooterStyle>
 
                         <HeaderStyle BackColor="#b81e0d" Font-Bold="True" ForeColor="White" HorizontalAlign="Center"></HeaderStyle>
 
-                    <PagerStyle HorizontalAlign="Center" BackColor="#FFCC66" ForeColor="#333333"></PagerStyle>
+                        <PagerStyle HorizontalAlign="Center" BackColor="#FFCC66" ForeColor="#333333"></PagerStyle>
 
-                    <RowStyle BackColor="#FFFBD6" ForeColor="#333333"></RowStyle>
+                        <RowStyle BackColor="#FFFBD6" ForeColor="#333333"></RowStyle>
 
-                    <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="White"></SelectedRowStyle>
+                        <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="White"></SelectedRowStyle>
 
-                    <SortedAscendingCellStyle BackColor="#FDF5AC"></SortedAscendingCellStyle>
+                        <SortedAscendingCellStyle BackColor="#FDF5AC"></SortedAscendingCellStyle>
 
-                    <SortedAscendingHeaderStyle BackColor="#4D0000"></SortedAscendingHeaderStyle>
+                        <SortedAscendingHeaderStyle BackColor="#4D0000"></SortedAscendingHeaderStyle>
 
-                    <SortedDescendingCellStyle BackColor="#FCF6C0"></SortedDescendingCellStyle>
+                        <SortedDescendingCellStyle BackColor="#FCF6C0"></SortedDescendingCellStyle>
 
-                    <SortedDescendingHeaderStyle BackColor="#820000"></SortedDescendingHeaderStyle>
-                </asp:GridView>
+                        <SortedDescendingHeaderStyle BackColor="#820000"></SortedDescendingHeaderStyle>
+                    </asp:GridView>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-
 
 
     <asp:Panel ID="pnlBookingConfirm" runat="server" Visible="false">
-    <div class="modal fade" id="confirm" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3>Room Booking Confirmation</h3>
-                </div>
-                <div class="modal-body">
-                    <table>
-                        <tr>
+        <div class="modal fade" id="confirm" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Room Booking Confirmation</h3>
+                    </div>
+                    <div class="modal-body">
+                        <table>
+                            <tr>
                                 <td style="width: 300px;">User</td>
-                            <td>
-                                <asp:Label ID="lblUser" runat="server"></asp:Label></td>
-                        </tr>
-                        <tr>
-                            <td>Room</td>
-                            <td>
-                                <asp:Label ID="lblRoom" runat="server"></asp:Label></td>
-                        </tr>
-                        <tr>
-                            <td>Start Time</td>
-                            <td>
-                                <asp:Label ID="lblStartTime" runat="server"></asp:Label></td>
-                        </tr>
-                        <tr>
-                            <td>End Time</td>
-                            <td>
-                                <asp:Label ID="lblEndTime" runat="server"></asp:Label></td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="modal-footer">
-                        <asp:Button ID="btnContinue" runat="server" Text="Continue" CssClass="btn btn-success" OnClick="btnContinue_Click" />
-                    <input id="btnCancel" runat="server" class="btn btn-default" value="Cancel" onclick="CloseModal();" />
+                                <td>
+                                    <asp:Label ID="lblUser" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td>Room</td>
+                                <td>
+                                    <asp:Label ID="lblRoom" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td>Start Time</td>
+                                <td>
+                                    <asp:Label ID="lblStartTime" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td>End Time</td>
+                                <td>
+                                    <asp:Label ID="lblEndTime" runat="server"></asp:Label></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                       <%-- <input id="btnContinue" onclick="SuccessModal();" runat="server" value="Continue" class="btn btn-success" />--%>
+                        <asp:Button ID="btnContinue" runat="server" Text="Continue" OnClick="btnContinue_Click"  CssClass="btn btn-success" />
+                        <input id="btnCancel" runat="server" class="btn btn-default" value="Cancel" onclick="CloseModal();" />
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </asp:Panel>
+
+    <div class="modal fade" id="success" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Booking Confirmed</h3>
+                    </div>
+                    <div class="modal-body">
+                       <div class="alert alert-success" role="alert">Success! You have succesfully reserved a classroom!</div>
+                    </div>
+                    <div class="modal-footer">
+                        <input id="btnClose" runat="server" class="btn btn-default" value="Close" onclick="SuccessCloseModal();" />
+                    </div>
+                </div>
+            </div>
+        </div>
 
     <script>
         if (GetQueryStringParam("MustLogIn")) {
@@ -184,6 +204,9 @@
         }
         if ($("#confirm")) {
             $('#confirm').modal('show');
+        }
+        if ($("#success")) {
+            $('#success').modal('hide');
         }
     </script>
 </asp:Content>

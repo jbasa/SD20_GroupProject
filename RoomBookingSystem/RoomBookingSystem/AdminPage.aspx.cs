@@ -49,6 +49,7 @@ namespace RoomBookingSystem
             btnadd.Visible = true;
             btnupdate.Visible = false;
             PanCapacity.Visible = true;
+            lblClassroomInfo.Visible = true;
         }
 
         protected void btnadd_Click(object sender, EventArgs e)
@@ -145,6 +146,7 @@ namespace RoomBookingSystem
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             PanAddRoom.Visible = false;
+            lblClassroomInfo.Visible = false;
         }
     }
 }

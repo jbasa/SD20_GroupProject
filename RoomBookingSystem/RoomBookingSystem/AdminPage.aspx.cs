@@ -22,14 +22,15 @@ namespace RoomBookingSystem
                 ddlRoom();
                 ddlUser();
                 loadRooms();
+                LoadFloors();
             }
         }
 
         private void loadRooms()
         {
-            //DAL mydal = new DAL(conn);
-            //GVRooms.DataSource = mydal.ExecuteProcedure("spGVRooms");
-            //GVRooms.DataBind();
+            DAL mydal = new DAL(conn);
+            GVRooms.DataSource = mydal.ExecuteProcedure("spGetRoom");
+            GVRooms.DataBind();
         }
 
         private void loadBookings()
@@ -37,6 +38,15 @@ namespace RoomBookingSystem
             DAL mydal = new DAL(conn);
             GVAdminBooking.DataSource = mydal.ExecuteProcedure("spgetBookingUserRoom");
             GVAdminBooking.DataBind();
+        }
+        private void LoadFloors()
+        {
+            DAL myDal = new DAL(conn);
+            DDLFloor.DataSource = myDal.ExecuteProcedure("spGetFloors");
+            DDLFloor.DataTextField = "FloorNumber";
+            DDLFloor.DataValueField = "FloorID";
+            DDLFloor.DataBind();
+
         }
 
         protected void ButtInsertRoom_Click(object sender, EventArgs e)
@@ -70,15 +80,49 @@ namespace RoomBookingSystem
             switch(e.CommandName)
             {
                 case "del":
-                    deleteRoom();
+                    deleteBooking();
                     break;
                 case "upd":
-                    getRoominfo();
+                    getBookinginfo();
                     break;
             }
         }
+        protected void GVRooms_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            GVRooms.SelectedIndex = Convert.ToInt32(e.CommandArgument);
+            switch(e.CommandName)
+            {
+                case "del":
+                    deleteroom();
+                    break;
+                case "Upd":
+                    RoomInfo();
+                    break;
+                    
+            }
+        }
 
-        private void getRoominfo()
+
+        private void deleteroom()
+        {
+            DAL mydal = new DAL(conn);
+            mydal.AddParam("RoomID", GVRooms.SelectedDataKey.Value.ToString());
+            mydal.ExecuteProcedure("spDeleteRoom");
+            loadRooms();
+        }
+        
+        private void RoomInfo()
+        {
+            PanRoom.Visible = true;
+            DAL mydal = new DAL(conn);
+            mydal.AddParam("RoomID", GVRooms.SelectedDataKey.Value.ToString());
+            DataSet ds = new DataSet();
+            ds = mydal.ExecuteProcedure("spGetRoom");
+            txtRoomName.Text = ds.Tables[0].Rows[0]["RoomName"].ToString();
+
+        }
+
+        private void getBookinginfo()
         {
             // info for Updateing a Booking //
             PanAddRoom.Visible = true;
@@ -93,7 +137,7 @@ namespace RoomBookingSystem
             txtEndTime.Text = ds.Tables[0].Rows[0]["EndTime"].ToString();
         }
 
-        private void deleteRoom()
+        private void deleteBooking()
         {
             DAL mydal = new DAL(conn);
             mydal.AddParam("bookingID", GVAdminBooking.SelectedDataKey.Value.ToString());
@@ -130,19 +174,32 @@ namespace RoomBookingSystem
             mydal.AddParam("FullName", DDLUsers.SelectedValue);
             mydal.AddParam("BookingID", GVAdminBooking.SelectedDataKey);
             mydal.ExecuteProcedure("spUpdateBooking");
+            loadBookings();
         }
 
-        protected void GVRooms_RowCommand(object sender, GridViewCommandEventArgs e)
+        protected void BtnUpdateRoom_Click(object sender, EventArgs e)
         {
-
+            DAL mydal = new DAL(conn);
+            mydal.AddParam("RoomID", GVRooms.SelectedDataKey.Value.ToString());
+            mydal.AddParam("RoomName", txtRoomName.Text);
+            mydal.AddParam("NumberOfChairs", DDLCap.SelectedValue);
+            mydal.ExecuteProcedure("spUpdateRoom");
+            PanRoom.Visible = false;
+            loadRooms();
         }
+
 
         protected void BtnInsertRoom_Click(object sender, EventArgs e)
         {
-
+           
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            PanAddRoom.Visible = false;
+        }
+
+        protected void BtnCancelRoom_Click(object sender, EventArgs e)
         {
             PanAddRoom.Visible = false;
         }

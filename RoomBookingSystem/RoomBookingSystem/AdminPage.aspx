@@ -46,8 +46,7 @@
                     <asp:BoundField HeaderText="Room Name" DataField="RoomName" />
                     <asp:BoundField HeaderText="Number Of Seats" DataField="NumberOfChairs" />
                     <asp:BoundField HeaderText="Floor" DataField="FloorNumber" />
-                    <asp:BoundField HeaderText="Start Time" DataField="StartTime" />
-                    <asp:BoundField HeaderText="End Time" DataField="EndTime" />
+                    <asp:BoundField HeaderText="Floor ID" DataField="FloorID" />
                     <asp:ButtonField ButtonType="Button" CommandName="Del" Text="Delete" />
                     <asp:ButtonField ButtonType="Button" CommandName="Upd" Text="Update" />
                 </Columns>
@@ -96,6 +95,44 @@
                             <td><asp:Button ID="btnupdate" runat="server" Text="Update" CssClass="btn btn-default" /></td>
                         </tr>
                     </table>                 
+                </asp:Panel>
+                <asp:Panel ID="PanRoom" runat="server" Visible="false">
+                    <table>
+                        <tr>
+                            <td>
+                                <h5>Room Name</h5>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtRoomName" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><h5>Capacity</h5></td>
+                            <td>
+                            <asp:DropDownList ID="DDLCap" runat="server">
+                        <asp:ListItem>10</asp:ListItem>
+                        <asp:ListItem>20</asp:ListItem>
+                        <asp:ListItem>30</asp:ListItem>
+                        <asp:ListItem>40+</asp:ListItem>
+                    </asp:DropDownList>
+                        </td></tr>
+                       <asp:Panel ID="Floor" Visible="false" runat="server"> <tr>
+                            <td>
+                                <h5>Floor</h5>
+                            </td>
+                            <td>
+                                <asp:DropDownList ID="DDLFloor" runat="server"></asp:DropDownList>
+                            </td>
+                        </tr></asp:Panel>
+                        <tr>
+                            <td>
+                                <asp:Button ID="BtnUpdateRoom" runat="server" Text="Update" OnClick="BtnUpdateRoom_Click" />
+                            </td>
+                            <td>
+                                <asp:Button ID="BtnCancelRoom" runat="server" Text="Cancel" OnClick="BtnCancelRoom_Click" />
+                            </td>
+                        </tr>
+                    </table>
                 </asp:Panel>
             </div>
         </div>

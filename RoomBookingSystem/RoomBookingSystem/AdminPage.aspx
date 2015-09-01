@@ -123,6 +123,7 @@
                 </asp:GridView>
                 <asp:Button ID="BtnInsertRoom" runat="server" Text="Add Room" OnClick="BtnInsertRoom_Click" CssClass="btn btn-default" />
         </div>
+
     </div>
     <asp:Panel ID="Admin" runat="server">
     </asp:Panel>

@@ -79,7 +79,7 @@
                         <tr>
                             <td>Security Level</td>
                             <td><asp:DropDownList ID="ddlSecurityLevel" runat="server">
-                                <asp:ListItem> </asp:ListItem>
+                                <asp:ListItem></asp:ListItem>
                                 <asp:ListItem>1</asp:ListItem>
                                 <asp:ListItem>2</asp:ListItem>
                                 </asp:DropDownList></td>

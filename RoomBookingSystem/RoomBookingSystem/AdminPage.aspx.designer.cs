@@ -175,13 +175,13 @@ namespace RoomBookingSystem {
         protected global::System.Web.UI.WebControls.DropDownList DDLCap;
         
         /// <summary>
-        /// Floor control.
+        /// PanFloor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Floor;
+        protected global::System.Web.UI.WebControls.Panel PanFloor;
         
         /// <summary>
         /// DDLFloor control.
@@ -200,6 +200,15 @@ namespace RoomBookingSystem {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnUpdateRoom;
+        
+        /// <summary>
+        /// BtnAddRoom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnAddRoom;
         
         /// <summary>
         /// BtnCancelRoom control.

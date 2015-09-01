@@ -338,3 +338,44 @@ select RoomName from tbRoom
 where RoomID = ISNULL (@RoomID, RoomID)
 end
 go
+
+-- Crud Room -- 
+Create proc spGetRoom
+(
+@RoomID int = null
+)
+as begin
+select RoomName, RoomID, NumberOfChairs, tbFloor.FloorID, FloorNumber from tbRoom, tbFloor
+where tbRoom.FloorID = tbFloor.FloorID and RoomID = isnull (@RoomID, RoomID)
+end
+go
+
+	
+Create proc spDeleteRoom
+(
+@RoomID int 
+)
+as begin 
+delete from tbFloor
+where FloorID in ( select FloorID from tbRoom
+where RoomID = @RoomID)
+
+delete from tbRoom
+where RoomID = @RoomID
+
+end
+go
+
+create proc spUpdateRoom
+(
+@RoomID int,
+@NumberOfChairs int,
+@RoomName varchar
+)
+as begin
+update tbRoom
+set RoomName = @RoomName,
+NumberOfChairs = @NumberOfChairs
+where RoomID = @RoomID
+end
+go

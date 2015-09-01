@@ -56,8 +56,8 @@ namespace RoomBookingSystem
             txtDate.Text = "";
             txtEndTime.Text = "";
             txtStartTime.Text = "";
-            btnadd.Visible = true;
-            btnupdate.Visible = false;
+            BtnAddRoom.Visible = true;
+            BtnUpdateRoom.Visible = false;
             PanCapacity.Visible = true;
             lblClassroomInfo.Visible = true;
         }
@@ -113,8 +113,8 @@ namespace RoomBookingSystem
         private void RoomInfo()
         {
             PanRoom.Visible = true;
-            BtnAddRoom.Visible = false;
-            BtnUpdateRoom.Visible = true;
+            btnadd.Visible = false;
+            btnupdate.Visible = true;
             DAL mydal = new DAL(conn);
             mydal.AddParam("RoomID", GVRooms.SelectedDataKey.Value.ToString());
             DataSet ds = new DataSet();
@@ -126,8 +126,8 @@ namespace RoomBookingSystem
         {
             // info for Updateing a Booking //
             PanAddRoom.Visible = true;
-            btnadd.Visible = false;
-            btnupdate.Visible = true;
+            BtnAddRoom.Visible = false;
+            BtnUpdateRoom.Visible = true;
             PanCapacity.Visible = false;
             DAL mydal = new DAL(conn);
             mydal.AddParam("BookingID", GVAdminBooking.SelectedDataKey.Value.ToString());
@@ -194,11 +194,11 @@ namespace RoomBookingSystem
             PanRoom.Visible = true;
             PanFloor.Visible = true;
             txtRoomName.Text = "";
-            BtnAddRoom.Visible = true;
-            BtnUpdateRoom.Visible = false;
+            btnadd.Visible = true;
+            btnupdate.Visible = false;
         }
 
-        protected void btnCancel_Click(object sender, EventArgs e)
+        protected void BtnCancelBooking_Click(object sender, EventArgs e)
         {
             PanAddRoom.Visible = false;
             lblClassroomInfo.Visible = false;
@@ -206,7 +206,7 @@ namespace RoomBookingSystem
 
         protected void BtnCancelRoom_Click(object sender, EventArgs e)
         {
-            PanAddRoom.Visible = false;
+            PanRoom.Visible = false;
         }
 
         protected void GVRooms_PageIndexChanging(object sender, GridViewPageEventArgs e)

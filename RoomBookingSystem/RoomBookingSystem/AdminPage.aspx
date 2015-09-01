@@ -36,6 +36,31 @@
                     </asp:GridView>
                     <asp:Button ID="ButtInsertBooking" runat="server" Text="Add Booking" OnClick="ButtInsertRoom_Click" CssClass="btn btn-default" />
                 </div>
+            </div>
+        </div>
+        <div> 
+            <asp:GridView ID="GVRooms" runat="server" PageSize="5" OnPageIndexChanging="GVRooms_PageIndexChanging" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="RoomID" OnRowCommand="GVRooms_RowCommand" CellPadding="4" ForeColor="#333333" GridLines="None" >
+                <AlternatingRowStyle BackColor="White" />
+                <Columns>
+                    <asp:BoundField HeaderText="RoomId" DataField="RoomID" />
+                    <asp:BoundField HeaderText="Room Name" DataField="RoomName" />
+                    <asp:BoundField HeaderText="Number Of Seats" DataField="NumberOfChairs" />
+                    <asp:BoundField HeaderText="Floor" DataField="FloorNumber" />
+                    <asp:BoundField HeaderText="Floor ID" DataField="FloorID" />
+                    <asp:ButtonField ButtonType="Button" CommandName="Del" Text="Delete" />
+                    <asp:ButtonField ButtonType="Button" CommandName="Upd" Text="Update" />
+                </Columns>
+                <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+                <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+                <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+                <SortedAscendingCellStyle BackColor="#FDF5AC" />
+                <SortedAscendingHeaderStyle BackColor="#4D0000" />
+                <SortedDescendingCellStyle BackColor="#FCF6C0" />
+                <SortedDescendingHeaderStyle BackColor="#820000" />
+            </asp:GridView>
+            <asp:Button ID="BtnInsertRoom" runat="server" Text="Add Room" OnClick="BtnInsertRoom_Click" CssClass="btn btn-default" />
         </div>
 
         <div class="col-md-3">
@@ -58,12 +83,12 @@
                                 </td>
                                 <td>
                                     <asp:DropDownList ID="ddlCapacity" runat="server">
-                                        <asp:ListItem>10</asp:ListItem>
-                                        <asp:ListItem>20</asp:ListItem>
-                                        <asp:ListItem>30</asp:ListItem>
-                                        <asp:ListItem>40+</asp:ListItem>
-                                    </asp:DropDownList></td>
-                            </tr>
+                        <asp:ListItem>10</asp:ListItem>
+                        <asp:ListItem>20</asp:ListItem>
+                        <asp:ListItem>30</asp:ListItem>
+                        <asp:ListItem>40+</asp:ListItem>
+                    </asp:DropDownList></td>
+                        </tr>
                         </asp:Panel>
                         <tr>
                             <td>
@@ -87,6 +112,16 @@
                                 <asp:TextBox ID="txtEndTime" runat="server" type="time"></asp:TextBox></td>
                         </tr>
                         <tr>
+                            <td><h5>Capacity</h5></td>
+                            <td>
+                            <asp:DropDownList ID="DDLCap" runat="server">
+                        <asp:ListItem>10</asp:ListItem>
+                        <asp:ListItem>20</asp:ListItem>
+                        <asp:ListItem>30</asp:ListItem>
+                        <asp:ListItem>40+</asp:ListItem>
+                    </asp:DropDownList>
+                        </td></tr>
+                       <asp:Panel ID="PanFloor" Visible="false" runat="server"> <tr>
                             <td>
                                 <h5>Name</h5>
                             </td>
@@ -96,15 +131,16 @@
                         </tr>
                         <tr>
                             <td>
-                                <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" CssClass="btn btn-default" /></td>
+                                <asp:Button ID="BtnUpdateRoom" runat="server" Text="Update" Visible="false" OnClick="BtnUpdateRoom_Click" />
+                                <asp:Button ID="BtnAddRoom" runat="server" Visible="false" Text="Add Room" />
+                            </td>
                             <td>
-                                <asp:Button ID="btnadd" runat="server" Text="Add" OnClick="btnadd_Click" CssClass="btn btn-default" /></td>
-                            <td>
-                                <asp:Button ID="btnupdate" runat="server" Text="Update" CssClass="btn btn-default" /></td>
+                                <asp:Button ID="BtnCancelRoom" runat="server" Text="Cancel" OnClick="BtnCancelRoom_Click" />
+                            </td>
                         </tr>
                     </table>
                 </asp:Panel>
-        </div>
+            </div>
     </div>
 
     <div class="container-fluid">

@@ -115,6 +115,8 @@ namespace RoomBookingSystem
         private void RoomInfo()
         {
             PanRoom.Visible = true;
+            BtnAddRoom.Visible = false;
+            BtnUpdateRoom.Visible = true;
             DAL mydal = new DAL(conn);
             mydal.AddParam("RoomID", GVRooms.SelectedDataKey.Value.ToString());
             DataSet ds = new DataSet();
@@ -181,6 +183,7 @@ namespace RoomBookingSystem
         protected void BtnUpdateRoom_Click(object sender, EventArgs e)
         {
             DAL mydal = new DAL(conn);
+
             mydal.AddParam("RoomID", GVRooms.SelectedDataKey.Value.ToString());
             mydal.AddParam("RoomName", txtRoomName.Text);
             mydal.AddParam("NumberOfChairs", DDLCap.SelectedValue);
@@ -192,7 +195,11 @@ namespace RoomBookingSystem
 
         protected void BtnInsertRoom_Click(object sender, EventArgs e)
         {
-           
+            PanRoom.Visible = true;
+            PanFloor.Visible = true;
+            txtRoomName.Text = "";
+            BtnAddRoom.Visible = true;
+            BtnUpdateRoom.Visible = false;
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
@@ -204,6 +211,12 @@ namespace RoomBookingSystem
         protected void BtnCancelRoom_Click(object sender, EventArgs e)
         {
             PanAddRoom.Visible = false;
+        }
+
+        protected void GVRooms_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GVRooms.PageIndex = e.NewPageIndex;
+            loadRooms();
         }
     }
 }

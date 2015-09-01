@@ -79,6 +79,7 @@ namespace RoomBookingSystem
             myDal.AddParam("@EndTime", EndTime);
             myDal.ExecuteProcedure("spBookRoom");
             pnlBookingConfirm.Visible = false;
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "SuccessModal();", true);
             
         }
     }

@@ -95,6 +95,7 @@ namespace RoomBookingSystem
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             pnlRight.Visible = false;
+            lblUserInfoLabel.Visible = false;
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
@@ -139,6 +140,7 @@ namespace RoomBookingSystem
             ResetFields();
             btnUpdate.Visible = false;
             btnSave.Visible = true;
+            lblUserInfoLabel.Visible = true;
         }
     }
 }

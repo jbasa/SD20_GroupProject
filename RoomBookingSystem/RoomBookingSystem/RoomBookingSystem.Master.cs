@@ -28,7 +28,8 @@ namespace RoomBookingSystem
                 //settingsLink.Attributes.Add("onclick", "pnlVisibleTrue()");
                 int UserID = mySecurity.UserID;
                 LoadUserInfo(UserID);
-                
+
+                lblWelcome.Text = "Welcome " + mySecurity.FullName + "!";
             }
         }
 

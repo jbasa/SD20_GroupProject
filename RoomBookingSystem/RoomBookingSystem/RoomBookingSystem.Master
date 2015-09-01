@@ -53,6 +53,7 @@
                     </button>
                     <a href="Index.aspx" class="navbar-brand">
                         <img style="max-width: 120px; margin-top: -12px; max-height: 40px" src="imgs/rbslogo2.png" alt="RBS LOGO" /></a>
+                    <asp:Label ID="lblWelcome" runat="server" CssClass="lblWelcome navbar-left"></asp:Label>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">

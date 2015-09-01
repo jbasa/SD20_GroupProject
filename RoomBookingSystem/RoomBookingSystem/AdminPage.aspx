@@ -112,17 +112,7 @@
                                 <asp:TextBox ID="txtEndTime" runat="server" type="time"></asp:TextBox></td>
                         </tr>
                         <tr>
-                            <td><h5>Capacity</h5></td>
-                            <td>
-                            <asp:DropDownList ID="DDLCap" runat="server">
-                        <asp:ListItem>10</asp:ListItem>
-                        <asp:ListItem>20</asp:ListItem>
-                        <asp:ListItem>30</asp:ListItem>
-                        <asp:ListItem>40+</asp:ListItem>
-                    </asp:DropDownList>
-                        </td></tr>
-                       <asp:Panel ID="PanFloor" Visible="false" runat="server"> <tr>
-                            <td>
+                        <td>
                                 <h5>Name</h5>
                             </td>
                             <td>
@@ -141,26 +131,46 @@
                     </table>
                 </asp:Panel>
             </div>
+    <div>
+        <asp:Panel ID="PanRoom" runat="server" Visible="false">
+            <table>
+                <tr>
+                    <td>
+                        <h5>Room Name</h5>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtRoomName" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                          <h5>Capacity</h5>
+                    <asp:DropDownList ID="DDLCap" runat="server">
+                        <asp:ListItem>10</asp:ListItem>
+                        <asp:ListItem>20</asp:ListItem>
+                        <asp:ListItem>30</asp:ListItem>
+                        <asp:ListItem>40+</asp:ListItem>
+                    </asp:DropDownList>
+                    </td>
+                </tr><asp:Panel ID="PanFloor" runat="server" Visible="false">
+                <tr>
+                    <td>
+                        <h5>Floor</h5>
+                    </td>
+                    <td>
+                    <asp:DropDownList ID="DDLFloor" runat="server"></asp:DropDownList>
+                </td></tr></asp:Panel>
+                <tr>
+                    <td>
+                        <asp:Button ID="btnadd" Visible="false" runat="server" Text="Add Room" />
+                        <asp:Button ID="btnupdate" Visible="false" OnClick="BtnUpdateRoom_Click" runat="server" Text="Update" />
+                    </td>
+                </tr>
+            </table>
+
+        </asp:Panel>
     </div>
 
-    <div class="container-fluid">
-        <div class="col-md-9">
-                <asp:GridView ID="GVRooms" runat="server" AutoGenerateColumns="false" DataKeyNames="RoomID" OnRowCommand="GVRooms_RowCommand">
-                    <Columns>
-                        <asp:BoundField HeaderText="RoomId" DataField="RoomID" />
-                        <asp:BoundField HeaderText="Room Name" DataField="RoomName" />
-                        <asp:BoundField HeaderText="Number Of Seats" DataField="NumberOfChairs" />
-                        <asp:BoundField HeaderText="Floor" DataField="FloorNumber" />
-                        <asp:BoundField HeaderText="Start Time" DataField="StartTime" />
-                        <asp:BoundField HeaderText="End Time" DataField="EndTime" />
-                        <asp:ButtonField ButtonType="Button" CommandName="Del" Text="Delete" />
-                        <asp:ButtonField ButtonType="Button" CommandName="Upd" Text="Update" />
-                    </Columns>
-                </asp:GridView>
-                <asp:Button ID="BtnInsertRoom" runat="server" Text="Add Room" OnClick="BtnInsertRoom_Click" CssClass="btn btn-default" />
-        </div>
-
-    </div>
     <asp:Panel ID="Admin" runat="server">
     </asp:Panel>
 </asp:Content>

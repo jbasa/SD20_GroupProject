@@ -102,8 +102,6 @@ namespace RoomBookingSystem
                     
             }
         }
-
-
         private void deleteroom()
         {
             DAL mydal = new DAL(conn);
@@ -122,7 +120,6 @@ namespace RoomBookingSystem
             DataSet ds = new DataSet();
             ds = mydal.ExecuteProcedure("spGetRoom");
             txtRoomName.Text = ds.Tables[0].Rows[0]["RoomName"].ToString();
-
         }
 
         private void getBookinginfo()
@@ -183,7 +180,6 @@ namespace RoomBookingSystem
         protected void BtnUpdateRoom_Click(object sender, EventArgs e)
         {
             DAL mydal = new DAL(conn);
-
             mydal.AddParam("RoomID", GVRooms.SelectedDataKey.Value.ToString());
             mydal.AddParam("RoomName", txtRoomName.Text);
             mydal.AddParam("NumberOfChairs", DDLCap.SelectedValue);

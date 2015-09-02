@@ -47,6 +47,7 @@
                     <asp:Label ID="lblClassroomInfo" runat="server" Text="Classroom Info" Visible="false"></asp:Label></h1>
             </div>
             <asp:Panel ID="PanAddRoom" Visible="false" runat="server">
+                <asp:ValidationSummary ID="ValidationSummary2" runat="server" />
                 <table>
                     <tr>
                         <td>
@@ -61,6 +62,7 @@
                         </td>
                         <td>
                             <asp:TextBox ID="txtDate" runat="server" type="date"></asp:TextBox></td>
+                        <asp:RequiredFieldValidator ID="valrfDate" runat="server" ErrorMessage="Date Required" Text="*" ControlToValidate="txtDate" EnableClientScript="False"></asp:RequiredFieldValidator>
                     </tr>
                     <tr>
                         <td>
@@ -68,6 +70,7 @@
                         </td>
                         <td>
                             <asp:TextBox ID="txtStartTime" runat="server" type="time"></asp:TextBox></td>
+                        <asp:RequiredFieldValidator ID="valrfStartTime" runat="server" ErrorMessage="Start Time Required" EnableClientScript="False" ControlToValidate="txtStartTime" Text="*"></asp:RequiredFieldValidator>
                     </tr>
                     <tr>
                         <td>
@@ -75,6 +78,7 @@
                         </td>
                         <td>
                             <asp:TextBox ID="txtEndTime" runat="server" type="time"></asp:TextBox></td>
+                        <asp:RequiredFieldValidator ID="valrfEndTime" runat="server" ErrorMessage="End Time Required" EnableClientScript="False" ControlToValidate="txtEndTime" Text="*"></asp:RequiredFieldValidator>
                     </tr>
                     <tr>
                         <td>
@@ -129,6 +133,7 @@
 
         <div class="col-md-3">
             <asp:Panel ID="PanRoom" runat="server" Visible="false">
+                <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
                 <table>
                     <tr>
                         <td>
@@ -145,6 +150,7 @@
                         </td>
                         <td>
                             <asp:TextBox ID="txtRoomName" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="valrfRoomName" runat="server" ErrorMessage="Room Name Required" EnableClientScript="False" ControlToValidate="txtRoomName" Text="*"></asp:RequiredFieldValidator>
                         </td>
                     </tr>
                     <tr>

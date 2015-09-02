@@ -49,6 +49,15 @@ namespace RoomBookingSystem {
         protected global::System.Web.UI.WebControls.Panel PanAddRoom;
         
         /// <summary>
+        /// ValidationSummary2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary2;
+        
+        /// <summary>
         /// DDLRoom control.
         /// </summary>
         /// <remarks>
@@ -67,6 +76,15 @@ namespace RoomBookingSystem {
         protected global::System.Web.UI.WebControls.TextBox txtDate;
         
         /// <summary>
+        /// valrfDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valrfDate;
+        
+        /// <summary>
         /// txtStartTime control.
         /// </summary>
         /// <remarks>
@@ -76,6 +94,15 @@ namespace RoomBookingSystem {
         protected global::System.Web.UI.WebControls.TextBox txtStartTime;
         
         /// <summary>
+        /// valrfStartTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valrfStartTime;
+        
+        /// <summary>
         /// txtEndTime control.
         /// </summary>
         /// <remarks>
@@ -83,6 +110,15 @@ namespace RoomBookingSystem {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEndTime;
+        
+        /// <summary>
+        /// valrfEndTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valrfEndTime;
         
         /// <summary>
         /// DDLUsers control.
@@ -148,6 +184,15 @@ namespace RoomBookingSystem {
         protected global::System.Web.UI.WebControls.Panel PanRoom;
         
         /// <summary>
+        /// ValidationSummary1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
+        
+        /// <summary>
         /// txtRoomID control.
         /// </summary>
         /// <remarks>
@@ -164,6 +209,15 @@ namespace RoomBookingSystem {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtRoomName;
+        
+        /// <summary>
+        /// valrfRoomName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valrfRoomName;
         
         /// <summary>
         /// DDLCap control.

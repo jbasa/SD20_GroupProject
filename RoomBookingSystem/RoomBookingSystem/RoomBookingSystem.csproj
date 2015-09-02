@@ -60,6 +60,7 @@
     <Content Include="AdminPage.aspx" />
     <Content Include="AboutUs.aspx" />
     <Content Include="AdminUsers.aspx" />
+    <Content Include="BookedRoomsByUser.aspx" />
     <Content Include="Booking.aspx" />
     <Content Include="CarouselStyle.css" />
     <Content Include="Contact.aspx" />
@@ -113,6 +114,13 @@
     </Compile>
     <Compile Include="AdminUsers.aspx.designer.cs">
       <DependentUpon>AdminUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BookedRoomsByUser.aspx.cs">
+      <DependentUpon>BookedRoomsByUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookedRoomsByUser.aspx.designer.cs">
+      <DependentUpon>BookedRoomsByUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Booking.aspx.cs">
       <DependentUpon>Booking.aspx</DependentUpon>

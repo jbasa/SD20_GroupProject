@@ -65,7 +65,7 @@
                                 <li><a href="AdminUsers.aspx">Admin Users</a></li>
                             </ul>
                         </li>
-
+                        <li><a href="BookedRoomsByUser.aspx" id="myBookedRoomsLink" runat="server" visible="false"><span class="glyphicon glyphicon-apple"></span>My Booked Rooms</a></li>
                         <li><a href="Booking.aspx"><span class="glyphicon glyphicon-time"></span>Booking</a></li>
                         <li><a href="AboutUs.aspx"><span class="glyphicon glyphicon-question-sign"></span>About</a></li>
                         <li><a href="Contact.aspx"><span class="glyphicon glyphicon-earphone"></span>Contact</a></li>

@@ -18,7 +18,7 @@ SecurityLevel INT
 insert into tbUsers (FullName, Email, Password, SecurityLevel) values
 					('Adam Kuharski','adam.kuharski@robertsoncollege.net','adam',2),
 					('Michael Glowa', 'michael.glowa@robertsoncollege.net','michael',1),
-					('John Basa', 'john.basa@robertsoncollege.net', 'john',1),
+					('John Basa', 'john.basa@robertsoncollege.net', 'john',2),
 					('Craig Kunz', 'craig.kunz@robertsoncollege.net', 'craig',1)
 
 
@@ -388,5 +388,20 @@ update tbRoom
 set RoomName = @RoomName,
 NumberOfChairs = @NumberOfChairs
 where RoomID = @RoomID
+end
+go
+
+
+Create proc spGetBookingsForUser
+(
+@UserID int = null
+)
+as begin
+	select  FloorNumber, RoomName, StartTime, EndTime, FullName, Email
+	from tbBooking, tbUsers, tbRoom,tbFloor
+	where tbUsers.UserID = ISNULL (@UserID, tbUsers.UserID) and
+		  tbBooking.UserID = tbUsers.UserID and
+		  tbRoom.RoomID = tbBooking.RoomID and
+		  tbFloor.FloorID = tbRoom.FloorID
 end
 go

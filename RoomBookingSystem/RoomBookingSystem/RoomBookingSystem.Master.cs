@@ -21,15 +21,18 @@ namespace RoomBookingSystem
                 loginLink.Style.Add("display", "none");
                 registerLink.Style.Add("display", "none");
                 settingsLink.Visible = true;
-                hlAdmin.Visible = true;
                 hlLogout.Visible = true;
-
+                myBookedRoomsLink.Visible = true;
                 pnlUserSettings.Visible = true;
                 //settingsLink.Attributes.Add("onclick", "pnlVisibleTrue()");
                 int UserID = mySecurity.UserID;
                 LoadUserInfo(UserID);
 
                 lblWelcome.Text = "Welcome " + mySecurity.FullName + "!";
+            }
+            if (mySecurity.IsAdmin())
+            {
+                hlAdmin.Visible = true;
             }
         }
 

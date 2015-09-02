@@ -115,6 +115,7 @@ namespace RoomBookingSystem
             PanRoom.Visible = true;
             btnadd.Visible = false;
             btnupdate.Visible = true;
+            PanFloor.Visible = false;
             DAL mydal = new DAL(conn);
             mydal.AddParam("RoomID", GVRooms.SelectedDataKey.Value.ToString());
             DataSet ds = new DataSet();

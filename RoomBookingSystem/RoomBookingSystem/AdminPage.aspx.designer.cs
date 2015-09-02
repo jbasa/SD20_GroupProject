@@ -58,24 +58,6 @@ namespace RoomBookingSystem {
         protected global::System.Web.UI.WebControls.DropDownList DDLRoom;
         
         /// <summary>
-        /// PanCapacity control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanCapacity;
-        
-        /// <summary>
-        /// ddlCapacity control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCapacity;
-        
-        /// <summary>
         /// txtDate control.
         /// </summary>
         /// <remarks>

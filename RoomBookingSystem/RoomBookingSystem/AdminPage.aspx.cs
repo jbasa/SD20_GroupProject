@@ -9,14 +9,19 @@ using System.Data;
 using DAL_Project;
 namespace RoomBookingSystem
 {
-     
+
     public partial class AdminPage : System.Web.UI.Page
     {
         static string conn = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            Security mySecurity = new Security();
+            if (!mySecurity.IsAdmin())
+            {
+                Response.Redirect("Index.aspx");
+            }
+            if (!IsPostBack)
             {
                 loadBookings();
                 ddlRoom();
@@ -58,7 +63,6 @@ namespace RoomBookingSystem
             txtStartTime.Text = "";
             BtnAddRoom.Visible = true;
             BtnUpdateRoom.Visible = false;
-            PanCapacity.Visible = true;
             lblClassroomInfo.Visible = true;
         }
 
@@ -67,18 +71,21 @@ namespace RoomBookingSystem
             // Adding a new Booking //
             PanAddRoom.Visible = false;
             DAL mydal = new DAL(conn);
-            mydal.AddParam("StartTime", txtStartTime.Text);
-            mydal.AddParam("EndTime", txtEndTime.Text);
-            mydal.AddParam("RoomName", DDLRoom.SelectedItem.Value.ToString());
-            mydal.AddParam("FullName", DDLUsers.SelectedValue.ToString());
+            DateTime StartTime = DateTime.Parse(txtDate.Text + " " + txtStartTime.Text);
+            DateTime EndTime = DateTime.Parse(txtDate.Text + " " + txtEndTime.Text);
+            mydal.AddParam("StartTime", StartTime);
+            mydal.AddParam("EndTime", EndTime);
+            mydal.AddParam("RoomID", DDLRoom.SelectedValue);
+            mydal.AddParam("UserID", DDLUsers.SelectedValue);
             mydal.ExecuteProcedure("spBookRoom");
             loadBookings();
+            PanAddRoom.Visible = false;
         }
 
         protected void GVAdminBooking_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             GVAdminBooking.SelectedIndex = Convert.ToInt32(e.CommandArgument);
-            switch(e.CommandName)
+            switch (e.CommandName)
             {
                 case "del":
                     deleteBooking();
@@ -91,7 +98,7 @@ namespace RoomBookingSystem
         protected void GVRooms_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             GVRooms.SelectedIndex = Convert.ToInt32(e.CommandArgument);
-            switch(e.CommandName)
+            switch (e.CommandName)
             {
                 case "del":
                     deleteroom();
@@ -99,7 +106,7 @@ namespace RoomBookingSystem
                 case "Upd":
                     RoomInfo();
                     break;
-                    
+
             }
         }
         private void deleteroom()
@@ -109,7 +116,7 @@ namespace RoomBookingSystem
             mydal.ExecuteProcedure("spDeleteRoom");
             loadRooms();
         }
-        
+
         private void RoomInfo()
         {
             PanRoom.Visible = true;
@@ -128,13 +135,14 @@ namespace RoomBookingSystem
             PanAddRoom.Visible = true;
             BtnAddRoom.Visible = false;
             BtnUpdateRoom.Visible = true;
-            PanCapacity.Visible = false;
             DAL mydal = new DAL(conn);
             mydal.AddParam("BookingID", GVAdminBooking.SelectedDataKey.Value.ToString());
             DataSet ds = new DataSet();
             ds = mydal.ExecuteProcedure("spgetBookingUserRoom");
+            DDLRoom.SelectedValue = ds.Tables[0].Rows[0]["RoomID"].ToString();
             txtStartTime.Text = ds.Tables[0].Rows[0]["StartTime"].ToString();
             txtEndTime.Text = ds.Tables[0].Rows[0]["EndTime"].ToString();
+            DDLUsers.SelectedValue = ds.Tables[0].Rows[0]["UserID"].ToString();
         }
 
         private void deleteBooking()
@@ -150,7 +158,7 @@ namespace RoomBookingSystem
             DataSet ds = new DataSet();
             ds = mydal.ExecuteProcedure("spGetRoomName");
             DDLRoom.DataSource = ds;
-            DDLRoom.DataValueField = "RoomName";
+            DDLRoom.DataValueField = "RoomID";
             DDLRoom.DataTextField = "RoomName";
             DDLRoom.DataBind();
         }
@@ -160,7 +168,7 @@ namespace RoomBookingSystem
             DataSet ds = new DataSet();
             ds = mydal.ExecuteProcedure("spGetUsers");
             DDLUsers.DataSource = ds;
-            DDLUsers.DataValueField = "FullName";
+            DDLUsers.DataValueField = "UserID";
             DDLUsers.DataTextField = "FullName";
             DDLUsers.DataBind();
         }
@@ -168,19 +176,24 @@ namespace RoomBookingSystem
         protected void btnupdate_Click(object sender, EventArgs e)
         {
             DAL mydal = new DAL(conn);
-            mydal.AddParam("StartTime", txtStartTime.Text);
-            mydal.AddParam("EndTime", txtEndTime.Text);
-            mydal.AddParam("RoomName", DDLRoom.SelectedValue);
-            mydal.AddParam("FullName", DDLUsers.SelectedValue);
-            mydal.AddParam("BookingID", GVAdminBooking.SelectedDataKey.Value.ToString());
-            mydal.ExecuteProcedure("spUpdateBooking");
+            DataSet dsUpdate = new DataSet();
+            DateTime StartTime = DateTime.Parse(txtDate.Text + " " + txtStartTime.Text);
+            DateTime EndTime = DateTime.Parse(txtDate.Text + " " + txtEndTime.Text);
+            mydal.AddParam("StartTime", StartTime);
+            mydal.AddParam("EndTime", EndTime);
+            mydal.AddParam("RoomID", DDLRoom.SelectedValue);
+            mydal.AddParam("UserID", DDLUsers.SelectedValue);
+            mydal.AddParam("BookingID", GVAdminBooking.SelectedDataKey.Value);
+            dsUpdate = mydal.ExecuteProcedure("spUpdateBooking");
             loadBookings();
+            PanAddRoom.Visible = false;
         }
 
         protected void BtnUpdateRoom_Click(object sender, EventArgs e)
         {
             DAL mydal = new DAL(conn);
-            mydal.AddParam("RoomID", GVRooms.SelectedDataKey.Value.ToString());
+
+            mydal.AddParam("RoomID", GVRooms.SelectedDataKey.Value);
             mydal.AddParam("RoomName", txtRoomName.Text);
             mydal.AddParam("NumberOfChairs", DDLCap.SelectedValue);
             mydal.ExecuteProcedure("spUpdateRoom");

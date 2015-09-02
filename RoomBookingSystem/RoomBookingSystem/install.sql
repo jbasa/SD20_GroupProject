@@ -107,8 +107,7 @@ Create proc spUpdateBooking
 @StartTime datetime,
 @EndTime datetime,
 @UserID int,
-@RoomID int,
-@RoomName varchar
+@RoomID int
 )
 as begin
 	Update tbBooking
@@ -334,7 +333,7 @@ Create proc spGetRoomName
 @RoomID int = null
 )
 as begin
-select RoomName from tbRoom
+select * from tbRoom
 where RoomID = ISNULL (@RoomID, RoomID)
 end
 go

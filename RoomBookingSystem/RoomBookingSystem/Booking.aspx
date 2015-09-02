@@ -53,19 +53,19 @@
                     <div class="item active">
                         <img src="imgs/business1.768x0.jpg" alt="...">
                         <div class="carousel-caption">
-                            <h3>Caption Text</h3>
+                            <h3></h3>
                         </div>
                     </div>
                     <div class="item">
                         <img src="imgs/rcbuilding.jpg" alt="...">
                         <div class="carousel-caption">
-                            <h3>Caption Text</h3>
+                            <h3></h3>
                         </div>
                     </div>
                     <div class="item">
-                        <img src="http://placehold.it/1200x315" alt="...">
+                        <img src="imgs/carousel3.jpg" alt="...">
                         <div class="carousel-caption">
-                            <h3>Caption Text</h3>
+                            <h3></h3>
                         </div>
                     </div>
                 </div>

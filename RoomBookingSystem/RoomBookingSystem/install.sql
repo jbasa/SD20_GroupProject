@@ -100,14 +100,15 @@ go
 
 Create proc spInsertRooms
 (
-@RoomID int,
 @NumberOfChairs int,
-@RoomName varchar,
+@RoomName varchar(30),
 @FloorID int
 )
 as begin
 insert into tbRoom (NumberOfChairs, RoomName, FloorID) values
 				   (@NumberOfChairs, @RoomName, @FloorID)
+
+SELECT SCOPE_IDENTITY() as [NewRoom]
 end
 go
 --spBookRoom @StartTime='2015-01-12 09:30:00',  @EndTime='2015-01-12 011:30:00', @UserId=1,@RoomID=8
@@ -367,13 +368,11 @@ Create proc spDeleteRoom
 (
 @RoomID int 
 )
-as begin 
-delete from tbFloor
-where FloorID in ( select FloorID from tbRoom
-where RoomID = @RoomID)
-
-delete from tbRoom
-where RoomID = @RoomID
+as begin
+delete from tbBooking
+where tbBooking.RoomID in (select tbBooking.RoomID from tbBooking, tbRoom
+where tbBooking.RoomID = @RoomID)
+delete from tbRoom where RoomID = @RoomID
 
 end
 go

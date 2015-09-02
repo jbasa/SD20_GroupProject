@@ -210,6 +210,7 @@ namespace RoomBookingSystem
             txtRoomName.Text = "";
             btnadd.Visible = true;
             btnupdate.Visible = false;
+            //txtRoomID.Visible = true;
             txtRoomID.Text = "new";
         }
 
@@ -238,7 +239,7 @@ namespace RoomBookingSystem
                 mydal.AddParam("RoomID",txtRoomID.Text);
             }
             mydal.AddParam("RoomName", txtRoomName.Text);
-            mydal.AddParam("@NumberOfChairs", ddlCapacity.SelectedValue.ToString());
+            mydal.AddParam("@NumberOfChairs", DDLCap.SelectedValue.ToString());
             mydal.AddParam("FloorID", DDLFloor.SelectedValue.ToString());
             mydal.ExecuteProcedure("spInsertRooms");
             loadRooms();

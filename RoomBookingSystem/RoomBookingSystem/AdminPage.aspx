@@ -135,6 +135,10 @@
                             <asp:TextBox ID="txtRoomID" Visible="false" runat="server"></asp:TextBox>
                         </td>
                     </tr>
+                   <%-- <tr>
+                        <td>RoomID:</td>
+                        <td><asp:TextBox ID="txtRoomID" runat="server"></asp:TextBox></td>
+                    </tr>--%>
                     <tr>
                         <td>
                             <h5>Room Name</h5>

@@ -97,6 +97,19 @@ as begin
 	select SCOPE_IDENTITY() as [NewBooking]
 end
 go
+
+Create proc spInsertRooms
+(
+@RoomID int,
+@NumberOfChairs int,
+@RoomName varchar,
+@FloorID int
+)
+as begin
+insert into tbRoom (NumberOfChairs, RoomName, FloorID) values
+				   (@NumberOfChairs, @RoomName, @FloorID)
+end
+go
 --spBookRoom @StartTime='2015-01-12 09:30:00',  @EndTime='2015-01-12 011:30:00', @UserId=1,@RoomID=8
 --SELECT * FROM tbBooking
 GO
@@ -369,7 +382,7 @@ create proc spUpdateRoom
 (
 @RoomID int,
 @NumberOfChairs int,
-@RoomName varchar
+@RoomName varchar (60)
 )
 as begin
 update tbRoom

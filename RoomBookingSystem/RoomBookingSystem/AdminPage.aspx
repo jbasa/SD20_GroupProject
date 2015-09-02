@@ -104,32 +104,37 @@
             </div>
             <div class="panel-body">
                 <asp:GridView ID="GVRooms" runat="server" PageSize="10" OnPageIndexChanging="GVRooms_PageIndexChanging" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="RoomID" OnRowCommand="GVRooms_RowCommand" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%">
-                    <AlternatingRowStyle BackColor="White" />
-                    <Columns>
-                        <asp:BoundField HeaderText="RoomId" DataField="RoomID" />
-                        <asp:BoundField HeaderText="Room Name" DataField="RoomName" />
-                        <asp:BoundField HeaderText="Number Of Seats" DataField="NumberOfChairs" />
-                        <asp:BoundField HeaderText="Floor" DataField="FloorNumber" />
-                        <asp:ButtonField ButtonType="Button" CommandName="Del" Text="Delete" ControlStyle-CssClass="btn btn-default" />
-                        <asp:ButtonField ButtonType="Button" CommandName="Upd" Text="Update" ControlStyle-CssClass="btn btn-default" />
-                    </Columns>
-                    <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                    <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                    <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-                    <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
-                    <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
-                    <SortedAscendingCellStyle BackColor="#FDF5AC" />
-                    <SortedAscendingHeaderStyle BackColor="#4D0000" />
-                    <SortedDescendingCellStyle BackColor="#FCF6C0" />
-                    <SortedDescendingHeaderStyle BackColor="#820000" />
-                </asp:GridView>
-                <asp:Button ID="BtnInsertRoom" runat="server" Text="Add Room" OnClick="BtnInsertRoom_Click" CssClass="btn btn-default" />
+                <AlternatingRowStyle BackColor="White" />
+                <Columns>
+                    <asp:BoundField HeaderText="RoomId" DataField="RoomID" />
+                    <asp:BoundField HeaderText="Room Name" DataField="RoomName" />
+                    <asp:BoundField HeaderText="Number Of Seats" DataField="NumberOfChairs" />
+                    <asp:BoundField HeaderText="Floor" DataField="FloorNumber" />
+                    <asp:ButtonField ButtonType="Button" CommandName="Del" Text="Delete" ControlStyle-CssClass="btn btn-default" />
+                    <asp:ButtonField ButtonType="Button" CommandName="Upd" Text="Update" ControlStyle-CssClass="btn btn-default" />
+                </Columns>
+                <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+                <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+                <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+                <SortedAscendingCellStyle BackColor="#FDF5AC" />
+                <SortedAscendingHeaderStyle BackColor="#4D0000" />
+                <SortedDescendingCellStyle BackColor="#FCF6C0" />
+                <SortedDescendingHeaderStyle BackColor="#820000" />
+            </asp:GridView>
+            <asp:Button ID="BtnInsertRoom" runat="server" Text="Add Room" OnClick="BtnInsertRoom_Click" CssClass="btn btn-default" />
             </div>
         </div>
 
         <div class="col-md-3">
             <asp:Panel ID="PanRoom" runat="server" Visible="false">
                 <table>
+                    <tr>
+                        <td>
+                            <asp:TextBox ID="txtRoomID" Visible="false" runat="server"></asp:TextBox>
+                        </td>
+                    </tr>
                     <tr>
                         <td>
                             <h5>Room Name</h5>
@@ -161,13 +166,13 @@
                     </asp:Panel>
                     <tr>
                         <td>
-                            <asp:Button ID="btnadd" Visible="false" runat="server" Text="Add Room" CssClass="btn btn-default" />
-                            <asp:Button ID="btnupdate" Visible="false" OnClick="BtnUpdateRoom_Click" runat="server" Text="Update" CssClass="btn btn-default" />
+                            <asp:Button ID="btnadd" Visible="false" runat="server" Text="Add Room" OnClick="btnadd_Click1" />
+                            <asp:Button ID="btnupdate" Visible="false" OnClick="BtnUpdateRoom_Click" runat="server" Text="Update" />
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <asp:Button ID="BtnCancelRoom" runat="server" Text="Cancel" OnClick="BtnCancelRoom_Click" CssClass="btn btn-default" />
+                            <asp:Button ID="BtnCancelRoom" runat="server" Text="Cancel" OnClick="BtnCancelRoom_Click" />
                         </td>
                     </tr>
                 </table>

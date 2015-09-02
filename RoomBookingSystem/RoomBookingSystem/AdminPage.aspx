@@ -139,6 +139,11 @@
                 <table>
                     <tr>
                         <td>
+                            <asp:TextBox ID="txtRoomID" Visible="false" runat="server"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
                             <h5>Room Name</h5>
                         </td>
                         <td>
@@ -168,12 +173,10 @@
                     </asp:Panel>
                     <tr>
                         <td>
-                            <asp:Button ID="btnadd" Visible="false" runat="server" Text="Add Room" />
+                            <asp:Button ID="btnadd" Visible="false" runat="server" Text="Add Room" OnClick="btnadd_Click1" />
                             <asp:Button ID="btnupdate" Visible="false" OnClick="BtnUpdateRoom_Click" runat="server" Text="Update" />
                         </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
+                           <td>
                             <asp:Button ID="BtnCancelRoom" runat="server" Text="Cancel" OnClick="BtnCancelRoom_Click" />
                         </td>
                     </tr>

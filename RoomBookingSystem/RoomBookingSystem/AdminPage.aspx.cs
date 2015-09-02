@@ -93,7 +93,7 @@ namespace RoomBookingSystem
             GVRooms.SelectedIndex = Convert.ToInt32(e.CommandArgument);
             switch(e.CommandName)
             {
-                case "del":
+                case "Del":
                     deleteroom();
                     break;
                 case "Upd":
@@ -196,6 +196,7 @@ namespace RoomBookingSystem
             txtRoomName.Text = "";
             btnadd.Visible = true;
             btnupdate.Visible = false;
+            txtRoomID.Text = "new";
         }
 
         protected void BtnCancelBooking_Click(object sender, EventArgs e)
@@ -213,6 +214,21 @@ namespace RoomBookingSystem
         {
             GVRooms.PageIndex = e.NewPageIndex;
             loadRooms();
+        }
+
+        protected void btnadd_Click1(object sender, EventArgs e)
+        {
+            DAL mydal = new DAL(conn);
+            if (txtRoomID.Text != "new")
+            {
+                mydal.AddParam("RoomID",txtRoomID.Text);
+            }
+            mydal.AddParam("RoomName", txtRoomName.Text);
+            mydal.AddParam("@NumberOfChairs", ddlCapacity.SelectedValue.ToString());
+            mydal.AddParam("FloorID", DDLFloor.SelectedValue.ToString());
+            mydal.ExecuteProcedure("spInsertRooms");
+            loadRooms();
+            PanRoom.Visible = false;
         }
     }
 }

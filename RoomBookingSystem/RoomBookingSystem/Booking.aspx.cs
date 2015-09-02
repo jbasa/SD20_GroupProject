@@ -41,15 +41,19 @@ namespace RoomBookingSystem
             }
             else
             {
-                DAL myDal = new DAL(conn);
-                DateTime StartTime = DateTime.Parse(txtDate.Text + " " + txtStartTime.Text);
-                DateTime EndTime = DateTime.Parse(txtDate.Text + " " + txtEndTime.Text);
-                myDal.AddParam("@FloorNumber", ddlFloor.SelectedValue);
-                myDal.AddParam("@NumberOfChairs", ddlCapacity.SelectedValue);
-                myDal.AddParam("@StartTime", StartTime);
-                myDal.AddParam("@EndTime", EndTime);
-                gvAvailableRooms.DataSource = myDal.ExecuteProcedure("spSearch");
-                gvAvailableRooms.DataBind();
+                if (Page.IsValid)
+                {
+                    DAL myDal = new DAL(conn);
+                    DateTime StartTime = DateTime.Parse(txtDate.Text + " " + txtStartTime.Text);
+                    DateTime EndTime = DateTime.Parse(txtDate.Text + " " + txtEndTime.Text);
+                    myDal.AddParam("@FloorNumber", ddlFloor.SelectedValue);
+                    myDal.AddParam("@NumberOfChairs", ddlCapacity.SelectedValue);
+                    myDal.AddParam("@StartTime", StartTime);
+                    myDal.AddParam("@EndTime", EndTime);
+                    gvAvailableRooms.DataSource = myDal.ExecuteProcedure("spSearch");
+                    gvAvailableRooms.DataBind();
+                }
+              
             }
 
         }

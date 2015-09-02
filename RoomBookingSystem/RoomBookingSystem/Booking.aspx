@@ -87,9 +87,11 @@
                     <h2 class="text-center">Book Your Room!</h2>
                 </div>
                 <div class="panel-body">
+                    <asp:ValidationSummary ID="ValidationSummary" runat="server" />
                     <h5>Floor</h5>
                     <asp:DropDownList ID="ddlFloor" runat="server">
                     </asp:DropDownList>
+
                     <h5>Capacity</h5>
                     <asp:DropDownList ID="ddlCapacity" runat="server">
                         <asp:ListItem>10</asp:ListItem>
@@ -99,10 +101,13 @@
                     </asp:DropDownList>
                     <h5>Date</h5>
                     <asp:TextBox ID="txtDate" runat="server" type="date"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="valrfDate" runat="server" ErrorMessage="Date Required" ControlToValidate="txtDate" EnableClientScript="False" Text="*"></asp:RequiredFieldValidator>
                     <h5>Start Time</h5>
                     <asp:TextBox ID="txtStartTime" runat="server" type="time"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="valrfStartTime" runat="server" ErrorMessage="Start Time Required" ControlToValidate="txtStartTime" EnableClientScript="False" Text="*"></asp:RequiredFieldValidator>
                     <h5>End Time</h5>
                     <asp:TextBox ID="txtEndTime" runat="server" type="time"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="valrfEndTime" runat="server" ErrorMessage="End Time Required" ControlToValidate="txtEndTime" EnableClientScript="False" Text="*"></asp:RequiredFieldValidator>
                     <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" CssClass="btn btn-success" />
                 </div>
             </div>
@@ -177,8 +182,8 @@
                         </table>
                     </div>
                     <div class="modal-footer">
-                       <%-- <input id="btnContinue" onclick="SuccessModal();" runat="server" value="Continue" class="btn btn-success" />--%>
-                        <asp:Button ID="btnContinue" runat="server" Text="Continue" OnClick="btnContinue_Click"  CssClass="btn btn-success" />
+                        <%-- <input id="btnContinue" onclick="SuccessModal();" runat="server" value="Continue" class="btn btn-success" />--%>
+                        <asp:Button ID="btnContinue" runat="server" Text="Continue" OnClick="btnContinue_Click" CssClass="btn btn-success" />
                         <input id="btnCancel" runat="server" class="btn btn-default" value="Cancel" onclick="CloseModal();" />
                     </div>
                 </div>
@@ -187,20 +192,20 @@
     </asp:Panel>
 
     <div class="modal fade" id="success" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h3>Booking Confirmed</h3>
-                    </div>
-                    <div class="modal-body">
-                       <div class="alert alert-success" role="alert">Success! You have succesfully reserved a classroom!</div>
-                    </div>
-                    <div class="modal-footer">
-                        <input id="btnClose" runat="server" class="btn btn-default" value="Close" onclick="CloseSuccessModal();" />
-                    </div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Booking Confirmed</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-success" role="alert">Success! You have succesfully reserved a classroom!</div>
+                </div>
+                <div class="modal-footer">
+                    <input id="btnClose" runat="server" class="btn btn-default" value="Close" onclick="CloseSuccessModal();" />
                 </div>
             </div>
         </div>
+    </div>
 
     <script>
         if (GetQueryStringParam("MustLogIn")) {

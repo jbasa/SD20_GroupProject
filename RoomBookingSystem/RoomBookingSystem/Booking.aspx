@@ -32,6 +32,10 @@
             $('#confirm').modal('hide');
             $('#success').modal('show');
         }
+
+        function CloseSuccessModal() {
+            $('#success').modal('hide');
+        }
     </script>
 
     <div class="container-fluid">
@@ -192,7 +196,7 @@
                        <div class="alert alert-success" role="alert">Success! You have succesfully reserved a classroom!</div>
                     </div>
                     <div class="modal-footer">
-                        <input id="btnClose" runat="server" class="btn btn-default" value="Close" onclick="SuccessCloseModal();" />
+                        <input id="btnClose" runat="server" class="btn btn-default" value="Close" onclick="CloseSuccessModal();" />
                     </div>
                 </div>
             </div>

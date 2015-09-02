@@ -12,3 +12,34 @@
     font-family:'Gentium Book Basic';
     font-size:large;
 }
+
+.contact-title {
+    font-family: 'Gentium Book Basic';
+    font-size: 32px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+.contact-subtitle {
+    font-size: 18px;
+    font-family: 'Gentium Book Basic';
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+.contact-body {
+    min-height: 108px;
+    font-size: 18px;
+    margin-top: 8px;
+}
+
+.contact-row {
+    margin-bottom: 10px;
+}
+
+.contact-label {
+    width: 70px;
+    display: inline-block;
+}

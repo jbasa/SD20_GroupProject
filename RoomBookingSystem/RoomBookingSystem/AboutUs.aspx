@@ -22,6 +22,18 @@
                     Our Online campus offers distance education to students all across Canada, allowing them to earn their diplomas and certificates completely online while still benefiting from the same support and career services offered to our campus students.</p>
             </div>
         </div>
+
+        <div class="page-header">
+            <h2>Our History</h2>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <p>Robertson College first started in 1911 in Saskatoon, Saskatchewan providing ‘apprentice’ training for judicial court shorthand stenographers.   Over the years, the college evolved into a Business College to today, offering career programs in Business, Health Care and IT across Canada.  </p><br />
+
+                <p>In 2004, Robertson College expanded internationally and began offering a Live-In Caregiver program in China to help Chinese students immigrate to Canada.  Since then, Robertson College has added other training partnerships in Senegal, Morocco, Mauritius and the United Kingdom.</p>
+            </div>
+        </div>
     </div>
 
 </asp:Content>

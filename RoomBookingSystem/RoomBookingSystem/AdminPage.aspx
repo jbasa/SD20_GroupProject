@@ -7,8 +7,9 @@
         <%--make drop down list for rooms and users--%>
         <div class="col-md-9">
             <div class="page-header">
-                <h1>Admin<small> CRUD for Booked Classrooms</small></h1>
+                <h1>Admin & Dashboard</h1>
             </div>
+            <div class="panel-heading"><h1><small>CRUD for Booked Classrooms</small></h1></div>
             <div class="panel-body">
                 <asp:GridView ID="GVAdminBooking" AutoGenerateColumns="False" DataKeyNames="BookingID" OnRowCommand="GVAdminBooking_RowCommand" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%">
                     <AlternatingRowStyle BackColor="White" />
@@ -97,11 +98,11 @@
                     </tr>
                     <tr>
                         <td>
-                            <asp:Button ID="BtnUpdateRoom" runat="server" Text="Update" Visible="false" OnClick="BtnUpdateRoom_Click" />
-                            <asp:Button ID="BtnAddRoom" runat="server" Visible="false" Text="Add Booking" />
+                            <asp:Button ID="BtnUpdateRoom" runat="server" Text="Update" Visible="false" OnClick="BtnUpdateRoom_Click" CssClass="btn btn-default" />
+                            <asp:Button ID="BtnAddRoom" runat="server" Visible="false" Text="Add Booking" CssClass="btn btn-default" />
                         </td>
                         <td>
-                            <asp:Button ID="BtnCancelBooking" runat="server" Text="Cancel" OnClick="BtnCancelBooking_Click" />
+                            <asp:Button ID="BtnCancelBooking" runat="server" Text="Cancel" OnClick="BtnCancelBooking_Click" CssClass="btn btn-default" />
                         </td>
                     </tr>
                 </table>
@@ -110,16 +111,17 @@
     </div>
     <div class="container-fluid">
         <div class="col-md-9">
-            <asp:GridView ID="GVRooms" runat="server" PageSize="5" OnPageIndexChanging="GVRooms_PageIndexChanging" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="RoomID" OnRowCommand="GVRooms_RowCommand" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <div class="panel-heading"><h1><small>CRUD for Available Classrooms</small></h1></div>
+            <div class="panel-body">
+                <asp:GridView ID="GVRooms" runat="server" PageSize="10" OnPageIndexChanging="GVRooms_PageIndexChanging" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="RoomID" OnRowCommand="GVRooms_RowCommand" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField HeaderText="RoomId" DataField="RoomID" />
                     <asp:BoundField HeaderText="Room Name" DataField="RoomName" />
                     <asp:BoundField HeaderText="Number Of Seats" DataField="NumberOfChairs" />
                     <asp:BoundField HeaderText="Floor" DataField="FloorNumber" />
-                    <asp:BoundField HeaderText="Floor ID" DataField="FloorID" />
-                    <asp:ButtonField ButtonType="Button" CommandName="Del" Text="Delete" />
-                    <asp:ButtonField ButtonType="Button" CommandName="Upd" Text="Update" />
+                    <asp:ButtonField ButtonType="Button" CommandName="Del" Text="Delete" ControlStyle-CssClass="btn btn-default" />
+                    <asp:ButtonField ButtonType="Button" CommandName="Upd" Text="Update" ControlStyle-CssClass="btn btn-default" />
                 </Columns>
                 <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                 <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
@@ -132,6 +134,7 @@
                 <SortedDescendingHeaderStyle BackColor="#820000" />
             </asp:GridView>
             <asp:Button ID="BtnInsertRoom" runat="server" Text="Add Room" OnClick="BtnInsertRoom_Click" CssClass="btn btn-default" />
+        </div>
         </div>
 
         <div class="col-md-3">
@@ -176,7 +179,9 @@
                             <asp:Button ID="btnadd" Visible="false" runat="server" Text="Add Room" OnClick="btnadd_Click1" />
                             <asp:Button ID="btnupdate" Visible="false" OnClick="BtnUpdateRoom_Click" runat="server" Text="Update" />
                         </td>
-                           <td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
                             <asp:Button ID="BtnCancelRoom" runat="server" Text="Cancel" OnClick="BtnCancelRoom_Click" />
                         </td>
                     </tr>
